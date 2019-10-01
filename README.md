@@ -73,6 +73,7 @@ python online_carla/generate_data.py --capture
 ```
 
 Available command line arguments:
+
 | Argument | Type | Description | 
 | --- |--- | --- |
 | positions | int* | List of positions on CARLA map at which datageneration should start |
