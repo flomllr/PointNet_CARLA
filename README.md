@@ -73,16 +73,16 @@ python online_carla/generate_data.py --capture
 ```
 
 Available command line arguments:
-|Argument|Type|Description|
-|---|---|---|
-|positions|int*|List of positions on CARLA map at which datageneration should start|
-|levels_of_randomness|float*|Levels of randomness added to the autopilot steering (each in a separate episode)|
-|frames|int*|Length of the simulation in frames corresponding to each level of randomness. Number of arguments must be equal or greater than number of arguments for levels_of_randomness|
-|capture|store_true|Without this flag, the data won't be saved. (Useful for dry-run.) Without --point_cloud or --lidar flag, only driving data and rgb images will be saved.|
-|point_cloud|store_true|Save dense point clouds (preprocessed to only contain points of road edges and road lines)|
-|lidar|store_true|Save LiDAR point clouds|
-|force_left_and_right|store_true|This flag causes two episodes for each position to be rendered: one where the car turns left and one where it turns right (useful for T-junctions)|
-|ignore_red_lights|store_true|This flags fixes the throttle at 0.5 and disables all breaks (usefil to ignore red lights)|
+| Argument | Type | Description | 
+| --- |--- | --- |
+| positions | int* | List of positions on CARLA map at which datageneration should start |
+| levels_of_randomness | float* | Levels of randomness added to the autopilot steering (each in a separate episode) |
+| frames | int* | Length of the simulation in frames corresponding to each level of randomness. Number of arguments must be equal or greater than number of arguments for levels_of_randomness |
+| capture | store_true | Without this flag, the data won't be saved. (Useful for dry-run.) Without --point_cloud or --lidar flag, only driving data and rgb images will be saved. |
+| point_cloud | store_true | Save dense point clouds (preprocessed to only contain points of road edges and road lines) |
+| lidar | store_true | Save LiDAR point clouds |
+| force_left_and_right | store_true|This flag causes two episodes for each position to be rendered: one where the car turns left and one where it turns right (useful for T-junctions) |
+| ignore_red_lights | store_true | This flags fixes the throttle at 0.5 and disables all breaks (usefil to ignore red lights) |
 
 Example:
 ```bash
