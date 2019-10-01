@@ -1,6 +1,6 @@
 ### Hands on Deep Learning - Project "Extending PointNet" - Subtask control
 
-> For some reasons, tables are not displayed properly in gitlab. Please see README.html for a formatted version of this document
+> For some reasons, the tables are not displayed properly on GitHub. Please see README.html for a formatted version of this document
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
