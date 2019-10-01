@@ -1,6 +1,5 @@
 ### Hands on Deep Learning - Project "Extending PointNet" - Subtask control
 
-> For some reasons, the tables are not displayed properly on GitHub. Please see README.html for a formatted version of this document
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
@@ -203,6 +202,7 @@ python pointnet.pytorch/utils/train_steering.py
 ```
 
 Available command line arguments:
+
 |Argument|Type|Description|Default value|
 |---|---|---|---|
 batch_size|int|Batch size|64|
@@ -289,6 +289,7 @@ A CARLA client executing the trained model can be started using the following sc
 python online_carla/pointnet_pilot.py
 ```
 Available command line arguments:
+
 |Argument|Type|Description|Default value
 |---|---|---|---|
 model|str|Path to the .pth file of the trained model which will be used to predict the steering values||
@@ -366,6 +367,7 @@ After capturing a test run by setting the `capture` flag, the point clouds and R
 python visualize_run.py
 ```
 Available command line arguments:
+
 |Argument|Type|Description|
 |---|---|---|
 path|str|Root directory of a single run to viszualize.|
