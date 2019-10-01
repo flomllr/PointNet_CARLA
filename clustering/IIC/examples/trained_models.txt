@@ -1,0 +1,5 @@
+Download all the trained models used in the paper, their configuration records and plots:
+
+wget https://www.robots.ox.ac.uk/~xuji/models/models.tar.gz
+
+Model numbers correspond to those in commands.txt

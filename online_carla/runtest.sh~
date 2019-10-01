@@ -1,0 +1,32 @@
+#! /bin/bash
+set Model [lindex $argv 0];
+echo "Testing ${Model}"
+
+LeftPositions=(42 85)
+RightPositions=(16 25)
+StraightPositions=(78)
+
+
+# Loop through left positions
+for Pos in "${LeftPositions[@]}"
+do
+	echo Testing position $Pos, steering indicator left
+	python pointnet_pilot.py --autopilot --use_steering_indicator --key_control --feature_transform --model=${MODEL} --lidar --position=${Pos} --frames=150 --capture --steering_indicator="left"
+	mv _capture/pos${Pos} _capture/pos${Pos}_left
+done
+
+# Loop through right positions
+for Pos in "${RightPositions[@]}"
+do
+	echo $Pos
+done
+
+# Loop through straight positions
+for Pos in "${StraightPositions[@]}"
+do
+	echo $Pos
+done
+
+
+echo Start testing...
+

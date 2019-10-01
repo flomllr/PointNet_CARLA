@@ -1,0 +1,42 @@
+#! /bin/bash
+args=("$@")
+Model=${args[0]}
+Modelpath="/usr/prakt/s0050/ss19_extendingpointnet/pointnet.pytorch/cls_final/${Model}.pth"
+echo "Testing ${Model}"
+
+LeftPositions=(42 67 85 102 88 66 138)
+RightPositions=(42 67 85 102 88 66 138)
+StraightPositions=(66 138 78 14)
+FOV=180
+
+# Loop through left positions
+for Pos in "${LeftPositions[@]}"
+do
+	echo Testing position $Pos, steering indicator left
+	python pointnet_pilot.py --autopilot --use_steering_indicator --key_control --feature_transform --model="${Modelpath}" --lidar --position=${Pos} --frames=150 --capture --steering_indicator="left" --lidar_fov=${FOV}
+	mv _capture/pos${Pos} _capture/pos${Pos}_left
+done
+
+# Loop through right positions
+for Pos in "${RightPositions[@]}"
+do
+	echo $Pos
+done
+
+# Loop through straight positions
+for Pos in "${StraightPositions[@]}"
+do
+	echo $Pos
+done
+
+
+# Move visualisations to new folder
+mv _capture _capture_${Model}
+# Start visualizing runs
+python visualize_run.py --lidar --gif --root=_capture_${Model}
+
+# delete everything except the gifs
+find _capture_${Model} f ! -name '.gif'
+
+echo Done.
+

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Hands on Deep Learning - Project "Extending PointNet" - Subtask control</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h3 id="hands-on-deep-learning---project-%22extending-pointnet%22---subtask-control">Hands on Deep Learning - Project &quot;Extending PointNet&quot; - Subtask control</h3>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#table-of-contents">Table of contents</a></li>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-pretrained-models-and-testing-visualizations">2. Pretrained models and testing visualizations</a></li>
+<li><a href="#3-installing-required-packages">3. Installing required packages</a></li>
+<li><a href="#4-running-the-carla-server">4. Running the CARLA server</a></li>
+<li><a href="#5-generating-a-dataset-using-the-carla-driving-simulator">5. Generating a dataset using the CARLA driving simulator</a></li>
+<li><a href="#6-preprocessing-the-dataset-optional">6. Preprocessing the dataset (optional)</a>
+<ul>
+<li><a href="#extracting-road-edges-and-lines-from-a-dense-point-cloud">Extracting road edges and lines from a dense point cloud</a></li>
+</ul>
+</li>
+<li><a href="#7-training-pointnet">7. Training PointNet</a>
+<ul>
+<li><a href="#dataset">Dataset</a></li>
+<li><a href="#training-script">Training script</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#8-offline-testing-and-visualizing">8. Offline testing and visualizing</a>
+<ul>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#9-testing-the-trained-model-in-the-carla-driving-simulator">9. Testing the trained model in the CARLA driving simulator</a>
+<ul>
+<li><a href="#examples-1">Examples</a></li>
+<li><a href="#setting-the-steering-indicator-during-testing">Setting the steering indicator during testing</a></li>
+<li><a href="#visualizing-test-runs-in-the-simulator">Visualizing test runs in the simulator</a>
+<ul>
+<li><a href="#example-1">Example</a></li>
+</ul>
+</li>
+<li><a href="#automated-testing">Automated testing</a></li>
+</ul>
+</li>
+<li><a href="#10-training-iic-model-for-unsupervised-segmentation">10. Training IIC model for unsupervised segmentation</a>
+<ul>
+<li><a href="#setting-up-the-environment">Setting up the environment</a></li>
+<li><a href="#preparing-the-dataset">Preparing the dataset</a></li>
+<li><a href="#training-the-unsupervised-segmentation-model">Training the unsupervised segmentation model</a></li>
+<li><a href="#visualize-the-segmentation-predicted-by-the-trained-iic-model">Visualize the segmentation predicted by the trained IIC model</a></li>
+<li><a href="#preprocessing-point-clouds-using-the-trained-iic-model">Preprocessing point clouds using the trained IIC model</a></li>
+<li><a href="#rename-files-to-create-a-valid-pointnet-dataset">Rename files to create a valid PointNet dataset</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>The goal of this project was to control a car in the CARLA driving simulator using a deep learning model trained on point clouds. This repository contains</p>
+<ul>
+<li>PointNet - a modified version of the <a href="https://github.com/fxia22/pointnet.pytorch">PointNet PyTorch implementation by Fei Xia</a></li>
+<li>Pretrained models for dense point clouds and for LiDAR point clouds</li>
+<li>scripts to automatically generate training data using the <a href="http://carla.org/">CARLA driving simulator</a></li>
+<li>scripts to preprocess point clouds using a segmentation image</li>
+<li>scripts to train and evaluate the PointNet model</li>
+<li>scripts to test a trained model in the <a href="http://carla.org/">CARLA driving simulator</a></li>
+<li>scripts to visualize test runs in the simulator using GIFs</li>
+<li>IIC - Invariant Information clustering model for unsupervised segmentation of images <a href="https://github.com/xu-ji/IIC">(implementation by Xu Ji)</a></li>
+</ul>
+<h2 id="2-pretrained-models-and-testing-visualizations">2. Pretrained models and testing visualizations</h2>
+<p>Pretrained PointNet models can be found in <code>trained_models/PointNet</code>.
+There is one LiDAR model, two dense point cloud models (one trained with two steering indicators and one trained with three steering indicators) and one model trained on point clouds filtered using the <a href="#10-training-iic-model-for-unsupervised-segmentation">predicted segmentation of a trained IIC model</a>.</p>
+<p>Pretrained IIC models can be found in <code>trained_models/IIC</code>.</p>
+<h2 id="3-installing-required-packages">3. Installing required packages</h2>
+<pre><code><div>pip install -r requirements.txt
+</div></code></pre>
+<h2 id="4-running-the-carla-server">4. Running the CARLA server</h2>
+<p>Before being able to generate a dataset or test a model in the simulator, you must make sure a CARLA server is running. Please <a href="https://github.com/carla-simulator/carla/releases/tag/0.8.2">install CARLA 0.8.2 according to the official documentation</a>.
+After CARLA is installed, run the following script to start the CARLA server:</p>
+<pre><code class="language-bash"><div>python online_carla/run_carla_server.py --carla-dir /path/to/your/CARLA_0.8.2/
+</div></code></pre>
+<h2 id="5-generating-a-dataset-using-the-carla-driving-simulator">5. Generating a dataset using the CARLA driving simulator</h2>
+<p>Make sure that the CARLA server is running in one terminal window.
+Then run the following script to generate a custom dataset using the CARLA simulator. The data will be saved in online_carla/_out.</p>
+<pre><code class="language-bash"><div>python online_carla/generate_data.py --capture
+</div></code></pre>
+<p>Available command line arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>positions</td>
+<td>int*</td>
+<td>List of positions on CARLA map at which datageneration should start</td>
+</tr>
+<tr>
+<td>levels_of_randomness</td>
+<td>float*</td>
+<td>Levels of randomness added to the autopilot steering (each in a separate episode)</td>
+</tr>
+<tr>
+<td>frames</td>
+<td>int*</td>
+<td>Length of the simulation in frames corresponding to each level of randomness. Number of arguments must be equal or greater than number of arguments for levels_of_randomness</td>
+</tr>
+<tr>
+<td>capture</td>
+<td>store_true</td>
+<td>Without this flag, the data won't be saved. (Useful for dry-run.) Without --point_cloud or --lidar flag, only driving data and rgb images will be saved.</td>
+</tr>
+<tr>
+<td>point_cloud</td>
+<td>store_true</td>
+<td>Save dense point clouds (preprocessed to only contain points of road edges and road lines)</td>
+</tr>
+<tr>
+<td>lidar</td>
+<td>store_true</td>
+<td>Save LiDAR point clouds</td>
+</tr>
+<tr>
+<td>force_left_and_right</td>
+<td>store_true</td>
+<td>This flag causes two episodes for each position to be rendered: one where the car turns left and one where it turns right (useful for T-junctions)</td>
+</tr>
+<tr>
+<td>ignore_red_lights</td>
+<td>store_true</td>
+<td>This flags fixes the throttle at 0.5 and disables all breaks (usefil to ignore red lights)</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<pre><code class="language-bash"><div>python online_carla/generate_data.py --positions 65 78 --levels_of_randomness 0.1 0.2 0.3 --frames 200 200 200 --capture --point_cloud --ignore-red-lights
+</div></code></pre>
+<p>This example call would lead to a generation of 6 episodes of point clouds (2 positions with each 3 levels of randomness), each containing 200 frames.</p>
+<p>If no position/level_or_randomness/frame argument is provided, the script falls back to the following values, which can be changed in the code:</p>
+<pre><code class="language-python"><div>positions = args.positions <span class="hljs-keyword">or</span> [<span class="hljs-number">65</span>, <span class="hljs-number">78</span>, <span class="hljs-number">49</span>, <span class="hljs-number">50</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">7</span>, <span class="hljs-number">23</span>, <span class="hljs-number">40</span>, <span class="hljs-number">20</span>, <span class="hljs-number">61</span>]
+levels_of_randomness = args.randomness <span class="hljs-keyword">or</span> [<span class="hljs-number">0.0</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.6</span>]
+frames_per_level = args.frames <span class="hljs-keyword">or</span> [<span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>]
+
+</div></code></pre>
+<h2 id="6-preprocessing-the-dataset-optional">6. Preprocessing the dataset (optional)</h2>
+<h3 id="extracting-road-edges-and-lines-from-a-dense-point-cloud">Extracting road edges and lines from a dense point cloud</h3>
+<blockquote>
+<p>Note: when using the provided generate_data.py script to generate the point cloud dataset, you can skip this step, since the point clouds will already be preprocessed by the data generation script and only contain points of road edges and road lines.</p>
+</blockquote>
+<p>The following script extracts point clouds containing only points of road edges and road lines from a dataset of dense point clouds and segmentation images:</p>
+<pre><code class="language-bash"><div>python road_edge_projection.py --datapath=/path/to/dataset/ --out=/path/to/output/dir/ --num_episodes=10
+</div></code></pre>
+<p>The script expects the dataset to be processed to have the following structure:</p>
+<pre><code><div>episode_000/
+    CameraSemSeg0/
+        image_00000.png
+        image_00001.png
+        ...
+    CameraDepth0/
+        image_00000.png
+        image_00001.png
+        ...
+episode_001/
+    ...
+</div></code></pre>
+<p>oIf the <code>num_episodes</code> argument is not provided, the script expects the datapath argument to be the root of an episode.</p>
+<p>The generated point clouds are saved in the directory specified with the <code>out</code> argument. It will have the following structure:</p>
+<pre><code><div>out/
+    episode_000/
+        point_cloud_00000.ply
+        point_cloud_00001.ply
+        ...
+    episode_001/
+    ...
+</div></code></pre>
+<h2 id="7-training-pointnet">7. Training PointNet</h2>
+<h3 id="dataset">Dataset</h3>
+<p>The training script expects the dataset to have one of the following three structures:</p>
+<ol>
+<li>
+<p>Plain <code>steering</code>:</p>
+<pre><code><div>dataset/
+    driving_data.csv
+    point_clouds/
+        point_cloud_00000.ply
+        point_cloud_00001.ply
+        ...
+</div></code></pre>
+</li>
+<li>
+<p>Multiple episodes - <code>steering_episodes</code>:</p>
+<pre><code><div>dataset/
+    episode_000/
+    episode_001/
+    ...
+</div></code></pre>
+</li>
+<li>
+<p>Nested - <code>steering_nested</code>: (this is the format the dataset will have when generated using the provided data generation script)</p>
+<pre><code><div>dataset/
+    pos102_/                Format pos{POSITION}_{optional: left/right}
+        randomness_0/       Format irrelevant
+            point_clouds/
+                driving_data.csv
+                point_cloud_00000.ply
+                point_cloud_00001.ply
+                ...
+        randomness_0.1/
+        ...
+    pos42_/
+    ...
+</div></code></pre>
+</li>
+<li>
+<p>Combined - <code>steering_combined</code>
+<br>Multiple <code>steering_nested</code> or <code>steering_episodes</code> datasets. The root directories of the individual datasets must be set directly in the script.</p>
+<pre><code class="language-python"><div><span class="hljs-comment"># train_steering.py line 106</span>
+datasets = [
+    (<span class="hljs-string">'/usr/prakt/s0050/PointCloudProcessed/lidar_town02'</span>, <span class="hljs-number">2</span>),
+    (<span class="hljs-string">'/usr/prakt/s0050/PointCloudProcessed/lidar_town01'</span>, <span class="hljs-number">2</span>),
+]
+</div></code></pre>
+<p>The individual datasets are provided using a tuple, with the first element representing the root directory and the second element the levels of nesting.  ( <code>1</code> corresponds to a <code>steering_episodes</code> dataset, <code>2</code> corresponds to a <code>steering_nested</code> dataset, <code>3</code> could be a directory containing multiple <code>steering_nested</code> datasets.)</p>
+</li>
+</ol>
+<p>The type of dataset can be set with the <code>dataset_type</code> argument.</p>
+<h3 id="training-script">Training script</h3>
+<p>Before starting the training script, make sure that a <a href="https://github.com/facebookresearch/visdom">visdom</a> server is running in order to receive training plots. If you don't want to use visdom to plot the training progress, provide the <code>no_visdom</code> flag.</p>
+<pre><code class="language-bash"><div>python pointnet.pytorch/utils/train_steering.py
+</div></code></pre>
+<p>Available command line arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batch_size</td>
+<td>int</td>
+<td>Batch size</td>
+<td>64</td>
+</tr>
+<tr>
+<td>num_points</td>
+<td>int</td>
+<td>Number of points to be sampled from each point cloud</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>nepoch</td>
+<td>int</td>
+<td>Number of epochs</td>
+<td>150</td>
+</tr>
+<tr>
+<td>outf</td>
+<td>str</td>
+<td>Output folder for the trained model. The basename will be used for Visdom as well.</td>
+<td>cls</td>
+</tr>
+<tr>
+<td>model</td>
+<td>str</td>
+<td>(optional) Path to a .pth file, from which the training will continue</td>
+<td></td>
+</tr>
+<tr>
+<td>dataset</td>
+<td>str</td>
+<td>Path to the root directory of the dataset</td>
+<td></td>
+</tr>
+<tr>
+<td>dataset_type</td>
+<td>str</td>
+<td>Type of provided dataset (see previous section for details)</td>
+<td>steering</td>
+</tr>
+<tr>
+<td>feature_transform</td>
+<td>store_true</td>
+<td>If flag is set, the feature transform network will be included in the training</td>
+<td></td>
+</tr>
+<tr>
+<td>only_left</td>
+<td>store_true</td>
+<td>If flag is set, the balanced/weighted sampler will only return examples from straight or left steering situations</td>
+<td></td>
+</tr>
+<tr>
+<td>sampler</td>
+<td>str</td>
+<td>Which sampler to use. Options: balanced, weighted, default</td>
+<td>weighted</td>
+</tr>
+<tr>
+<td>use_whole_dataset</td>
+<td>store_true</td>
+<td>If this flag is set, the whole provided dataset will be used for training. Otherwise, 80% will be used for training and 20% for testing</td>
+<td></td>
+</tr>
+<tr>
+<td>steering_indicator</td>
+<td>store_true</td>
+<td>If this flag is set, a steering indicator will be included during training, which tells the model in which direction to steer when there are multiple possible paths (recommended)</td>
+<td></td>
+</tr>
+<tr>
+<td>num_steering_indicators</td>
+<td>int</td>
+<td>Number of steering indicators to be used during training (2 = left/right, 3 = left/straight/right)</td>
+<td></td>
+</tr>
+<tr>
+<td>running_mean</td>
+<td>int</td>
+<td>Size of a running mean to be applied on the steering values (not recommended)</td>
+<td></td>
+</tr>
+<tr>
+<td>data_augmentation</td>
+<td>store_true</td>
+<td>If this flag is set, the training data will be augmented using random noise and random rotations (not recommended)</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples</h3>
+<p>Training with nested dataset</p>
+<pre><code><div>python pointnet.pytorch/utils/train_steering.py \
+ --batch_size=64 \
+ --num_points=1000 \
+ --dataset=/usr/prakt/s0050/PointCloudProcessed/t-junctions \
+ --dataset_type=&quot;steering_nested&quot; \
+ --outf=cls/steering_nested \
+ --sampler=weighted \
+ --nepoch=150 \
+ --steering_indicator \
+ --use_whole_dataset \
+ --feature_transform
+</div></code></pre>
+<p>Training with combined dataset</p>
+<pre><code><div>python pointnet.pytorch/utils/train_steering.py \
+--sampler=weighted \
+--dataset_type=steering_combined \
+--outf=cls/steering_combined \
+--use_whole_dataset \
+--batch_size=32 \
+--num_points=2500 \
+--nepoch=200 \
+--feature_transform
+</div></code></pre>
+<h2 id="8-offline-testing-and-visualizing">8. Offline testing and visualizing</h2>
+<p>Predictions on a provided example set can be visualized using visdom by calling the following script. A carla server must be running before calling the script.</p>
+<pre><code><div>python pointnet.pytorch/utils/test_model.py
+</div></code></pre>
+<p>Available command line arguments</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_points</td>
+<td>int</td>
+<td>Number of points to be sampled from each point cloud</td>
+</tr>
+<tr>
+<td>feature_transform</td>
+<td>store_true</td>
+<td>If flag is set, the feature transform network will be included during testing</td>
+</tr>
+<tr>
+<td>model</td>
+<td>str</td>
+<td>Model path (.pth file)</td>
+</tr>
+<tr>
+<td>dataset</td>
+<td>str</td>
+<td>Path of the dataset</td>
+</tr>
+<tr>
+<td>dataset_type</td>
+<td>str</td>
+<td>Type of dataset. Currently only support for <code>steering</code> and <code>steering_episodes</code> datasets is implemented. (See <a href="#dataset">Dataset</a> section for more details)</td>
+</tr>
+<tr>
+<td>visdom</td>
+<td>str</td>
+<td>Name for visdom plots</td>
+</tr>
+<tr>
+<td>running_mean</td>
+<td>int</td>
+<td>Size of the running mean applied to ground truth steering values (not recommended)</td>
+</tr>
+<tr>
+<td>steering_indicator</td>
+<td>store_true</td>
+<td>If this flag is set, a steering indicator will be included during training, which tells the model in which direction to steer when there are multiple possible paths (recommended)</td>
+</tr>
+<tr>
+<td>num_steering_indicators</td>
+<td>int</td>
+<td>Number of steering indicators to be used during training (2 = left/right, 3 = left/straight/right)</td>
+</tr>
+<tr>
+<td>data_augmentation</td>
+<td>store_true</td>
+<td>Set this flag, if data augmentation was used during training (if --data_augmentation flag was set for training)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example</h3>
+<pre><code><div>python pointnet.pytorch/utils/test_model.py --num_points 25000 --feature_transform --model trained_models/PointNet/iic3_natural_turns.pth --dataset /usr/prakt/s0050/PointCloudProcessed/iic/ --dataset_type steering_episodes --num_episodes 1 --batch_size 1 --visdom iic
+</div></code></pre>
+<h2 id="9-testing-the-trained-model-in-the-carla-driving-simulator">9. Testing the trained model in the CARLA driving simulator</h2>
+<p>Before testing a trained PointNet model in the CARLA simulator environment,  make sure that a CARLA server is running. (Refer to serction <a href="#3-running-the-carla-server">&quot;Running the CARLA server&quot;</a>)</p>
+<p>A CARLA client executing the trained model can be started using the following script:</p>
+<pre><code><div>python online_carla/pointnet_pilot.py
+</div></code></pre>
+<p>Available command line arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>model</td>
+<td>str</td>
+<td>Path to the .pth file of the trained model which will be used to predict the steering values</td>
+<td></td>
+</tr>
+<tr>
+<td>feature_transform</td>
+<td>store_true</td>
+<td>If this flag is set, the feature transform network will be included in the model. This must be set accoring to the settings during training the model.</td>
+<td></td>
+</tr>
+<tr>
+<td>use_steering_indicator</td>
+<td>store_true</td>
+<td>If this flag is set, a steering indicator is given to the model during testing. This flag must be set accoring to the settings during training</td>
+<td></td>
+</tr>
+<tr>
+<td>position</td>
+<td>int</td>
+<td>Starting position of the simulation. (<a href="#overview-of-available-starting-positions">Available positions</a>)</td>
+<td></td>
+</tr>
+<tr>
+<td>steering_indicator</td>
+<td>str</td>
+<td>Fix the steering indicator to a specific value. (Options &quot;left&quot;/&quot;right&quot;)</td>
+<td></td>
+</tr>
+<tr>
+<td>frames</td>
+<td>int</td>
+<td>Length of the simulation in frames</td>
+<td></td>
+</tr>
+<tr>
+<td>capture</td>
+<td>store_true</td>
+<td>If this flag is set, the point clouds used for predicting the steering angle will be saved to <code>_capture</code>. This flag must be set to be able to <a href="#9-visualizing-test-runs-in-the-simulator">visualize the test run</a> afterwards.</td>
+<td></td>
+</tr>
+<tr>
+<td>key_control</td>
+<td>store_true</td>
+<td>If this flag is set, it is possible to dynamically <a href="#setting-the-steering-indicator-during-testing">set the steering indicator during the simulation using the keyboard</a></td>
+<td></td>
+</tr>
+<tr>
+<td>ignore_red_lights</td>
+<td>store_true</td>
+<td>If this flag is set, the car will ignore red lights (by fixing throttle to 0.5 and disabling the breaks)</td>
+<td></td>
+</tr>
+<tr>
+<td>lidar</td>
+<td>store_true</td>
+<td>If this flag is set, LiDAR point clouds will be generated and passed to the model instead of preprocessed dense point clouds.</td>
+<td></td>
+</tr>
+<tr>
+<td>lidar_pps</td>
+<td>int</td>
+<td>This flag specifies the points per second sampled by the LiDAR sensor if the <code>lidar</code> flag is  set.</td>
+<td>100.000</td>
+</tr>
+<tr>
+<td>lidar_fov</td>
+<td>int</td>
+<td>Field of view of the LiDAR sensor. Options: 360, 180.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples-1">Examples</h4>
+<p>Testing the pre-trained point cloud model</p>
+<pre><code><div>python online_carla/pointnet_pilot.py \
+--model trained_models/PointNet/point_cloud_three_indicators.pth \
+--feature_transform \
+--use_steering_indicator \
+--position 1 \
+--frames 300 \
+--key_control \
+--ignore_red_lights
+</div></code></pre>
+<p>Testing the pre-trained lidar model</p>
+<pre><code><div>python online_carla/pointnet_pilot.py \
+--model trained_models/PointNet/lidar_180_fov.pth \
+--feature_transform \
+--use_steering_indicator \
+--position 1 \
+--frames 300 \
+--key_control \
+--ignore_red_lights \
+--lidar \
+--lidar_fov 180
+</div></code></pre>
+<p>Testing the IIC model</p>
+<pre><code><div>python online_carla/pointnet_pilot.py \
+--model trained_models/PointNet/iic3_natual_turns.pth \
+--feature_transform \
+--use_steering_indicator \
+--position 1 \
+--frames 300 \
+--key_control \
+--ignore_red_lights \
+--iic \
+--iic_net_name latest \
+--iic_model /usr/prakt/s0050/ss19_extendingpointnet/trained_models/IIC/3
+</div></code></pre>
+<h3 id="setting-the-steering-indicator-during-testing">Setting the steering indicator during testing</h3>
+<p>To set the steering indicator during testing, set the <code>key_control</code> flag when calling the <code>pointnet_pilot.py</code> script. Note that the focus must remain on the terminal window (not the simulation window) for the key control to work.</p>
+<p>Key settings:</p>
+<pre><code><div>a = left / 10
+d = right / 01
+s = straight / 00
+</div></code></pre>
+<h3 id="visualizing-test-runs-in-the-simulator">Visualizing test runs in the simulator</h3>
+<p>After capturing a test run by setting the <code>capture</code> flag, the point clouds and RGB images can be converted to two synchronous GIFs in order to &quot;see what the model saw&quot;.</p>
+<pre><code><div>python visualize_run.py
+</div></code></pre>
+<p>Available command line arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>str</td>
+<td>Root directory of a single run to viszualize.</td>
+</tr>
+<tr>
+<td>root</td>
+<td>str</td>
+<td>Directory containing multiple runs. (E.g. <code>_capture</code> directory generated by the testing script)</td>
+</tr>
+<tr>
+<td>lidar</td>
+<td>store_true</td>
+<td>Set this flag, if the point clouds are generated by a LiDAR sensor.</td>
+</tr>
+<tr>
+<td>point_cloud</td>
+<td>store_true</td>
+<td>Set this flag, if the point clouds are dense point clouds</td>
+</tr>
+<tr>
+<td>gif</td>
+<td>store_true</td>
+<td>Set this flag to generate a GIF</td>
+</tr>
+<tr>
+<td>images</td>
+<td>store_true</td>
+<td>If this flag is set, the point clouds are ignored and a GIF is generated only from the RGB images</td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-1">Example</h4>
+<pre><code><div>python visualize_run.py --root _capture --point_cloud --gif
+</div></code></pre>
+<h3 id="automated-testing">Automated testing</h3>
+<p>The <code>online_carla/runtest.sh</code> bash script provides a convenient way to test and a model in multiple situations and visualize the runs without manually having to start the scripts one by one.</p>
+<p>Model path and settings can be changed directly in the file:</p>
+<pre><code class="language-bash"><div><span class="hljs-comment"># /carla_online/runtest.sh</span>
+
+Model=<span class="hljs-variable">${args[0]}</span>
+Modelpath=<span class="hljs-string">"/usr/prakt/s0050/ss19_extendingpointnet/pointnet.pytorch/cls_final/<span class="hljs-variable">${Model}</span>.pth"</span> <span class="hljs-comment"># Change this to the .pth file of your trained model</span>
+
+<span class="hljs-comment"># Settings</span>
+FOV=360 <span class="hljs-comment"># 360 or 180</span>
+CAPTURE=<span class="hljs-string">"--capture"</span> <span class="hljs-comment"># Replace with "" for a dry run</span>
+LIDAR=<span class="hljs-string">"--lidar"</span> <span class="hljs-comment"># Remove this flag, </span>
+VISUALIZE=<span class="hljs-literal">true</span>  <span class="hljs-comment"># Set to false to skip the visualization steps</span>
+
+<span class="hljs-comment"># Define the desired start positions</span>
+LeftPositions=(42 67 85)
+RightPositions=(42 67 85)
+StraightPositions=(66 138 78)
+</div></code></pre>
+<p>After defining your settings in the file, you can simply call the script to start the testing.</p>
+<pre><code class="language-console"><div>sh runtest.sh
+</div></code></pre>
+<h2 id="10-training-iic-model-for-unsupervised-segmentation">10. Training IIC model for unsupervised segmentation</h2>
+<p>In this project the <a href="https://github.com/xu-ji/IIC">Invariant Information Clustering</a> was used as an attempt to replace the ground truth segmentation data currently used for preprocessing the dense point clouds.</p>
+<blockquote>
+<p>This part of the project is encapsulated from the rest of the project - it therefore has a different python virtual environment and the provided commands should be run from the <code>clustering/IIC/</code> directory.</p>
+</blockquote>
+<h3 id="setting-up-the-environment">Setting up the environment</h3>
+<p>To get started, run the following command in <code>clustering/IIC/</code>:</p>
+<pre><code><div>conda create --name iic --file requirements.txt
+</div></code></pre>
+<h3 id="preparing-the-dataset">Preparing the dataset</h3>
+<h3 id="training-the-unsupervised-segmentation-model">Training the unsupervised segmentation model</h3>
+<pre><code class="language-bash"><div><span class="hljs-built_in">export</span> CUDA_VISIBLE_DEVICES=1 &amp;&amp; \
+nohup python -m code.scripts.segmentation.segmentation_twohead_custom \
+--mode IID \
+--dataset Carla \
+--dataset_root /usr/prakt/s0050/ss19_extendingpointnet/clustering/IIC/datasets/Carla/ \
+--model_ind 1 \
+--arch SegmentationNet10aTwoHead \
+--num_epochs 4800 \
+--lr 0.000001 \
+--lamb_A 1.0 \
+--lamb_B 1.0 \
+--num_sub_heads 1 \
+--batch_sz 36 \
+--num_dataloaders 1 \
+--output_k_A 36 \
+--output_k_B 13 \
+--gt_k 13 \
+--input_sz 200 \
+--half_T_side_spar se_min 0 \
+--half_T_side_sparse_max 0 \
+--half_T_side_dense 5  \
+--include_rgb \
+--no_sobel \
+--jitter_brightness 0.1 \
+--jitter_contrast 0.1 \
+--jitter_saturation 0.1 \
+--jitter_hue 0.1  \
+--use_uncollapsed_loss \
+--batchnorm_track \
+--out_root /usr/prakt/s0050/IIC_selfmade \
+&gt; train.out &amp; 
+</div></code></pre>
+<h3 id="visualize-the-segmentation-predicted-by-the-trained-iic-model">Visualize the segmentation predicted by the trained IIC model</h3>
+<p>Run the following script from <code>clustering/IIC</code> to render visualizations of the segmentation predicted by the IIC model:</p>
+<pre><code><div>python -m code.scripts.segmentation.analysis.render_general \
+--model_inds 3 \
+--net_name latest
+</div></code></pre>
+<h3 id="preprocessing-point-clouds-using-the-trained-iic-model">Preprocessing point clouds using the trained IIC model</h3>
+<p>Run the following script from the root of this repository (after adjusting the command line arguments) to extract the points corresponding to the segmentation class corresponding to road lines and sidewalk from a dense point cloud using the segmentation provided by the trained IIC model:</p>
+<pre><code><div>python -m processing.processing \
+--root /storage/group/hodl4cv/lopc/control/episode_000/ \
+--out /usr/prakt/s0050/carla_iic_processed/pointcloud \
+--model_root /usr/prakt/s0050/IIC_selfmade/1 \
+--net_name latest
+</div></code></pre>
+<h3 id="rename-files-to-create-a-valid-pointnet-dataset">Rename files to create a valid PointNet dataset</h3>
+<p>Run the following script from the root of this repository (after adjusting the command line arguments) to rename the processed point clouds to create a valid dataset to train the PointNet model</p>
+<pre><code><div>python processing/rename_files.py --root /usr/prakt/s0050/PointCloudProcessed/iic/
+</div></code></pre>
+
+    </body>
+    </html>

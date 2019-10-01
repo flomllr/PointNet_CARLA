@@ -1,0 +1,1535 @@
+Given config: Config: -----
+use_random_affine: False
+batchnorm_track: True
+pre_scale_factor: 0.5
+jitter_saturation: 0.1
+eval_mode: hung
+out_dir: /usr/prakt/s0050/IIC_selfmade/1
+flip_p: 0.5
+incl_animal_things: False
+use_random_scale: False
+use_coarse_labels: False
+dataset: Carla
+using_IR: False
+include_rgb: True
+num_epochs: 4800
+lr_schedule: []
+use_uncollapsed_loss: True
+half_T_side_sparse_min: 0
+lamb_B: 1.0
+lamb_A: 1.0
+output_k_B: 13
+save_freq: 1
+coco_164k_curated_version: -1
+output_k_A: 36
+lr_mult: 0.1
+head_B_first: False
+aff_max_scale: 1.2
+dataloader_batch_sz: 4
+in_channels: 3
+lr: 1e-06
+aff_min_scale: 0.8
+aff_min_shear: -10.0
+gt_k: 13
+opt: Adam
+jitter_brightness: 0.1
+output_k: 13
+num_dataloaders: 1
+half_T_side_sparse_max: 0
+aff_min_rot: -30.0
+include_things_labels: False
+jitter_hue: 0.1
+num_sub_heads: 1
+test_code: False
+half_T_side_dense: 5
+fine_to_coarse_dict: /users/xuji/iid/iid_private/code/datasets/segmentation/util/out/fine_to_coarse_dict.pickle
+input_sz: 200
+dataset_root: /usr/prakt/s0050/ss19_extendingpointnet/clustering/IIC/datasets/Carla/
+arch: SegmentationNet10aTwoHead
+restart: False
+batch_sz: 4
+pre_scale_all: False
+scale_min: 0.6
+out_root: /usr/prakt/s0050/IIC_selfmade
+model_ind: 1
+aff_max_shear: 10.0
+scale_max: 1.4
+use_doersch_datasets: False
+mask_input: False
+mode: IID
+aff_max_rot: 30.0
+jitter_contrast: 0.1
+no_sobel: True
+----------
+Creating paired dataloader 0 out of 1 time 2019-08-04 23:25:55.324842
+************** CARLA *****************
+/usr/prakt/s0050/ss19_extendingpointnet/clustering/IIC/datasets/Carla/
+Length of paired datasets vector 1
+Number of batches per epoch: 9
+/usr/prakt/s0050/.local/lib/python2.7/site-packages/torch/nn/functional.py:2539: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+************** CARLA *****************
+/usr/prakt/s0050/ss19_extendingpointnet/clustering/IIC/datasets/Carla/
+************** CARLA *****************
+/usr/prakt/s0050/ss19_extendingpointnet/clustering/IIC/datasets/Carla/
+Pre: time 2019-08-04 23:31:44.420697: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 6), (2, 12), (3, 9), (4, 11), (5, 10), (6, 8), (7, 2), (8, 7), (9, 3), (10, 4), (11, 5), (12, 1)]
+	test_accs: [0.52976644]
+	train_accs: [0.52976644]
+	best_train_sub_head: 0
+	worst: 0.52976644
+	avg: 0.52976644
+	best: 0.52976644
+
+using uncollapsed loss!
+Starting e_i: 1 2019-08-04 23:31:44.522063
+Model ind 1 epoch 1 head A batch: 0 avg loss -0.003147 avg loss no lamb -0.003147 time 2019-08-04 23:32:24.094167
+Model ind 1 epoch 1 head A batch: 1 avg loss -0.006494 avg loss no lamb -0.006494 time 2019-08-04 23:33:07.722657
+Model ind 1 epoch 1 head A batch: 2 avg loss -0.005822 avg loss no lamb -0.005822 time 2019-08-04 23:33:51.378761
+Model ind 1 epoch 1 head A batch: 3 avg loss -0.008417 avg loss no lamb -0.008417 time 2019-08-04 23:34:35.135924
+Model ind 1 epoch 1 head A batch: 4 avg loss -0.003295 avg loss no lamb -0.003295 time 2019-08-04 23:35:18.804592
+Model ind 1 epoch 1 head A batch: 5 avg loss -0.006374 avg loss no lamb -0.006374 time 2019-08-04 23:36:02.543830
+Model ind 1 epoch 1 head A batch: 6 avg loss -0.005711 avg loss no lamb -0.005711 time 2019-08-04 23:36:46.319490
+Model ind 1 epoch 1 head A batch: 7 avg loss -0.008833 avg loss no lamb -0.008833 time 2019-08-04 23:37:30.121752
+last batch sz 3
+Model ind 1 epoch 1 head A batch: 8 avg loss -0.007039 avg loss no lamb -0.007039 time 2019-08-04 23:38:03.872832
+Model ind 1 epoch 1 head B batch: 0 avg loss -0.007869 avg loss no lamb -0.007869 time 2019-08-04 23:38:46.622000
+Model ind 1 epoch 1 head B batch: 1 avg loss -0.007349 avg loss no lamb -0.007349 time 2019-08-04 23:39:30.404817
+Model ind 1 epoch 1 head B batch: 2 avg loss -0.004107 avg loss no lamb -0.004107 time 2019-08-04 23:40:14.097353
+Model ind 1 epoch 1 head B batch: 3 avg loss -0.002749 avg loss no lamb -0.002749 time 2019-08-04 23:40:57.824074
+Model ind 1 epoch 1 head B batch: 4 avg loss -0.003999 avg loss no lamb -0.003999 time 2019-08-04 23:41:41.527759
+Model ind 1 epoch 1 head B batch: 5 avg loss -0.008655 avg loss no lamb -0.008655 time 2019-08-04 23:42:25.181283
+Model ind 1 epoch 1 head B batch: 6 avg loss -0.011546 avg loss no lamb -0.011546 time 2019-08-04 23:43:08.928538
+Model ind 1 epoch 1 head B batch: 7 avg loss -0.009636 avg loss no lamb -0.009636 time 2019-08-04 23:43:52.642267
+last batch sz 3
+Model ind 1 epoch 1 head B batch: 8 avg loss -0.009256 avg loss no lamb -0.009256 time 2019-08-04 23:44:26.381153
+Pre: time 2019-08-04 23:50:18.394585: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 6), (1, 11), (2, 10), (3, 1), (4, 12), (5, 5), (6, 4), (7, 0), (8, 9), (9, 8), (10, 2), (11, 3), (12, 7)]
+	test_accs: [0.4500957]
+	train_accs: [0.4500957]
+	best_train_sub_head: 0
+	worst: 0.4500957
+	avg: 0.4500957
+	best: 0.4500957
+
+Starting e_i: 2 2019-08-04 23:50:20.121531
+Model ind 1 epoch 2 head A batch: 0 avg loss -0.009805 avg loss no lamb -0.009805 time 2019-08-04 23:51:00.412886
+Model ind 1 epoch 2 head B batch: 0 avg loss -0.006420 avg loss no lamb -0.006420 time 2019-08-04 23:57:23.583023
+Pre: time 2019-08-05 00:09:00.319045: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 9), (1, 12), (2, 10), (3, 5), (4, 1), (5, 11), (6, 4), (7, 0), (8, 2), (9, 8), (10, 6), (11, 7), (12, 3)]
+	test_accs: [0.3145693]
+	train_accs: [0.3145693]
+	best_train_sub_head: 0
+	worst: 0.3145693
+	avg: 0.3145693
+	best: 0.3145693
+
+Starting e_i: 3 2019-08-05 00:09:02.080613
+Model ind 1 epoch 3 head A batch: 0 avg loss -0.015383 avg loss no lamb -0.015383 time 2019-08-05 00:09:42.508003
+Model ind 1 epoch 3 head B batch: 0 avg loss -0.029101 avg loss no lamb -0.029101 time 2019-08-05 00:16:10.789053
+Pre: time 2019-08-05 00:27:53.912423: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 9), (1, 12), (2, 10), (3, 1), (4, 5), (5, 11), (6, 4), (7, 0), (8, 2), (9, 8), (10, 6), (11, 3), (12, 7)]
+	test_accs: [0.37850142]
+	train_accs: [0.37850142]
+	best_train_sub_head: 0
+	worst: 0.37850142
+	avg: 0.37850142
+	best: 0.37850142
+
+Starting e_i: 4 2019-08-05 00:27:55.630946
+Model ind 1 epoch 4 head A batch: 0 avg loss -0.010683 avg loss no lamb -0.010683 time 2019-08-05 00:28:36.149993
+Model ind 1 epoch 4 head B batch: 0 avg loss -0.038542 avg loss no lamb -0.038542 time 2019-08-05 00:35:07.381327
+Pre: time 2019-08-05 00:46:52.872496: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 9), (1, 12), (2, 10), (3, 5), (4, 4), (5, 11), (6, 1), (7, 0), (8, 2), (9, 8), (10, 6), (11, 7), (12, 3)]
+	test_accs: [0.37986714]
+	train_accs: [0.37986714]
+	best_train_sub_head: 0
+	worst: 0.37986714
+	avg: 0.37986714
+	best: 0.37986714
+
+Starting e_i: 5 2019-08-05 00:46:54.525199
+Model ind 1 epoch 5 head A batch: 0 avg loss -0.024414 avg loss no lamb -0.024414 time 2019-08-05 00:47:35.016429
+Model ind 1 epoch 5 head B batch: 0 avg loss -0.073783 avg loss no lamb -0.073783 time 2019-08-05 00:54:03.615262
+Pre: time 2019-08-05 01:05:45.444957: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 9), (1, 11), (2, 10), (3, 12), (4, 5), (5, 1), (6, 4), (7, 0), (8, 2), (9, 8), (10, 6), (11, 3), (12, 7)]
+	test_accs: [0.4057493]
+	train_accs: [0.4057493]
+	best_train_sub_head: 0
+	worst: 0.4057493
+	avg: 0.4057493
+	best: 0.4057493
+
+Starting e_i: 6 2019-08-05 01:05:47.096482
+Model ind 1 epoch 6 head A batch: 0 avg loss -0.034897 avg loss no lamb -0.034897 time 2019-08-05 01:06:28.107002
+Model ind 1 epoch 6 head B batch: 0 avg loss -0.078356 avg loss no lamb -0.078356 time 2019-08-05 01:12:57.515503
+Pre: time 2019-08-05 01:24:41.395039: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 10), (3, 9), (4, 5), (5, 11), (6, 4), (7, 8), (8, 2), (9, 6), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.37331]
+	train_accs: [0.37331]
+	best_train_sub_head: 0
+	worst: 0.37331
+	avg: 0.37331
+	best: 0.37331
+
+Starting e_i: 7 2019-08-05 01:24:43.072206
+Model ind 1 epoch 7 head A batch: 0 avg loss -0.047666 avg loss no lamb -0.047666 time 2019-08-05 01:25:23.739631
+Model ind 1 epoch 7 head B batch: 0 avg loss -0.090435 avg loss no lamb -0.090435 time 2019-08-05 01:31:54.313469
+Pre: time 2019-08-05 01:43:39.802192: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 1), (5, 9), (6, 10), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.40040714]
+	train_accs: [0.40040714]
+	best_train_sub_head: 0
+	worst: 0.40040714
+	avg: 0.40040714
+	best: 0.40040714
+
+Starting e_i: 8 2019-08-05 01:43:41.454752
+Model ind 1 epoch 8 head A batch: 0 avg loss -0.053087 avg loss no lamb -0.053087 time 2019-08-05 01:44:22.222791
+Model ind 1 epoch 8 head B batch: 0 avg loss -0.194710 avg loss no lamb -0.194710 time 2019-08-05 01:50:49.279082
+Pre: time 2019-08-05 02:02:30.252989: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 1), (5, 9), (6, 10), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.45933786]
+	train_accs: [0.45933786]
+	best_train_sub_head: 0
+	worst: 0.45933786
+	avg: 0.45933786
+	best: 0.45933786
+
+Starting e_i: 9 2019-08-05 02:02:31.933421
+Model ind 1 epoch 9 head A batch: 0 avg loss -0.052874 avg loss no lamb -0.052874 time 2019-08-05 02:03:12.295876
+Model ind 1 epoch 9 head B batch: 0 avg loss -0.138369 avg loss no lamb -0.138369 time 2019-08-05 02:09:37.508542
+Pre: time 2019-08-05 02:21:18.943303: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 1), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.47359714]
+	train_accs: [0.47359714]
+	best_train_sub_head: 0
+	worst: 0.47359714
+	avg: 0.47359714
+	best: 0.47359714
+
+Starting e_i: 10 2019-08-05 02:21:20.621529
+Model ind 1 epoch 10 head A batch: 0 avg loss -0.078435 avg loss no lamb -0.078435 time 2019-08-05 02:22:01.617694
+Model ind 1 epoch 10 head B batch: 0 avg loss -0.162038 avg loss no lamb -0.162038 time 2019-08-05 02:28:28.878225
+Pre: time 2019-08-05 02:40:06.421468: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 4), (7, 8), (8, 2), (9, 6), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.49011713]
+	train_accs: [0.49011713]
+	best_train_sub_head: 0
+	worst: 0.49011713
+	avg: 0.49011713
+	best: 0.49011713
+
+Starting e_i: 11 2019-08-05 02:40:08.454090
+Model ind 1 epoch 11 head A batch: 0 avg loss -0.091661 avg loss no lamb -0.091661 time 2019-08-05 02:40:49.268540
+Model ind 1 epoch 11 head B batch: 0 avg loss -0.232543 avg loss no lamb -0.232543 time 2019-08-05 02:47:17.669170
+Pre: time 2019-08-05 02:58:57.588745: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 1), (5, 9), (6, 10), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.49538428]
+	train_accs: [0.49538428]
+	best_train_sub_head: 0
+	worst: 0.49538428
+	avg: 0.49538428
+	best: 0.49538428
+
+Starting e_i: 12 2019-08-05 02:58:59.288068
+Model ind 1 epoch 12 head A batch: 0 avg loss -0.185166 avg loss no lamb -0.185166 time 2019-08-05 02:59:39.603495
+Model ind 1 epoch 12 head B batch: 0 avg loss -0.263730 avg loss no lamb -0.263730 time 2019-08-05 03:06:09.025580
+Pre: time 2019-08-05 03:17:50.911182: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 1), (5, 9), (6, 10), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5077664]
+	train_accs: [0.5077664]
+	best_train_sub_head: 0
+	worst: 0.5077664
+	avg: 0.5077664
+	best: 0.5077664
+
+Starting e_i: 13 2019-08-05 03:17:52.556054
+Model ind 1 epoch 13 head A batch: 0 avg loss -0.214231 avg loss no lamb -0.214231 time 2019-08-05 03:18:33.103532
+Model ind 1 epoch 13 head B batch: 0 avg loss -0.269614 avg loss no lamb -0.269614 time 2019-08-05 03:25:02.393995
+Pre: time 2019-08-05 03:36:43.704420: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 1), (5, 9), (6, 10), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5030193]
+	train_accs: [0.5030193]
+	best_train_sub_head: 0
+	worst: 0.5030193
+	avg: 0.5030193
+	best: 0.5030193
+
+Starting e_i: 14 2019-08-05 03:36:45.430585
+Model ind 1 epoch 14 head A batch: 0 avg loss -0.068775 avg loss no lamb -0.068775 time 2019-08-05 03:37:26.420353
+Model ind 1 epoch 14 head B batch: 0 avg loss -0.227574 avg loss no lamb -0.227574 time 2019-08-05 03:43:57.783918
+Pre: time 2019-08-05 03:55:41.803073: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5285829]
+	train_accs: [0.5285829]
+	best_train_sub_head: 0
+	worst: 0.5285829
+	avg: 0.5285829
+	best: 0.5285829
+
+Starting e_i: 15 2019-08-05 03:55:43.494671
+Model ind 1 epoch 15 head A batch: 0 avg loss -0.314265 avg loss no lamb -0.314265 time 2019-08-05 03:56:24.113527
+Model ind 1 epoch 15 head B batch: 0 avg loss -0.284425 avg loss no lamb -0.284425 time 2019-08-05 04:02:54.468860
+Pre: time 2019-08-05 04:14:40.432496: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.52731645]
+	train_accs: [0.52731645]
+	best_train_sub_head: 0
+	worst: 0.52731645
+	avg: 0.52731645
+	best: 0.52731645
+
+Starting e_i: 16 2019-08-05 04:14:42.214141
+Model ind 1 epoch 16 head A batch: 0 avg loss -0.280142 avg loss no lamb -0.280142 time 2019-08-05 04:15:23.132072
+Model ind 1 epoch 16 head B batch: 0 avg loss -0.304912 avg loss no lamb -0.304912 time 2019-08-05 04:21:55.014292
+Pre: time 2019-08-05 04:33:38.140856: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.53282356]
+	train_accs: [0.53282356]
+	best_train_sub_head: 0
+	worst: 0.53282356
+	avg: 0.53282356
+	best: 0.53282356
+
+Starting e_i: 17 2019-08-05 04:33:40.591084
+Model ind 1 epoch 17 head A batch: 0 avg loss -0.312307 avg loss no lamb -0.312307 time 2019-08-05 04:34:21.076993
+Model ind 1 epoch 17 head B batch: 0 avg loss -0.406049 avg loss no lamb -0.406049 time 2019-08-05 04:40:48.699293
+Pre: time 2019-08-05 04:52:30.314924: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.540645]
+	train_accs: [0.540645]
+	best_train_sub_head: 0
+	worst: 0.540645
+	avg: 0.540645
+	best: 0.540645
+
+Starting e_i: 18 2019-08-05 04:52:32.787353
+Model ind 1 epoch 18 head A batch: 0 avg loss -0.385409 avg loss no lamb -0.385409 time 2019-08-05 04:53:13.365006
+Model ind 1 epoch 18 head B batch: 0 avg loss -0.385083 avg loss no lamb -0.385083 time 2019-08-05 04:59:42.167755
+Pre: time 2019-08-05 05:11:25.346009: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.54630286]
+	train_accs: [0.54630286]
+	best_train_sub_head: 0
+	worst: 0.54630286
+	avg: 0.54630286
+	best: 0.54630286
+
+Starting e_i: 19 2019-08-05 05:11:28.101625
+Model ind 1 epoch 19 head A batch: 0 avg loss -0.391900 avg loss no lamb -0.391900 time 2019-08-05 05:12:08.779622
+Model ind 1 epoch 19 head B batch: 0 avg loss -0.380779 avg loss no lamb -0.380779 time 2019-08-05 05:18:39.999166
+Pre: time 2019-08-05 05:30:29.180298: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.55195284]
+	train_accs: [0.55195284]
+	best_train_sub_head: 0
+	worst: 0.55195284
+	avg: 0.55195284
+	best: 0.55195284
+
+Starting e_i: 20 2019-08-05 05:30:31.649845
+Model ind 1 epoch 20 head A batch: 0 avg loss -0.360165 avg loss no lamb -0.360165 time 2019-08-05 05:31:12.429157
+Model ind 1 epoch 20 head B batch: 0 avg loss -0.350300 avg loss no lamb -0.350300 time 2019-08-05 05:37:42.054769
+Pre: time 2019-08-05 05:49:24.694206: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.54543287]
+	train_accs: [0.54543287]
+	best_train_sub_head: 0
+	worst: 0.54543287
+	avg: 0.54543287
+	best: 0.54543287
+
+Starting e_i: 21 2019-08-05 05:49:26.481461
+Model ind 1 epoch 21 head A batch: 0 avg loss -0.251716 avg loss no lamb -0.251716 time 2019-08-05 05:50:06.949371
+Model ind 1 epoch 21 head B batch: 0 avg loss -0.475180 avg loss no lamb -0.475180 time 2019-08-05 05:56:37.203517
+Pre: time 2019-08-05 06:08:24.107454: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.562525]
+	train_accs: [0.562525]
+	best_train_sub_head: 0
+	worst: 0.562525
+	avg: 0.562525
+	best: 0.562525
+
+Starting e_i: 22 2019-08-05 06:08:26.760530
+Model ind 1 epoch 22 head A batch: 0 avg loss -0.239428 avg loss no lamb -0.239428 time 2019-08-05 06:09:07.694534
+Model ind 1 epoch 22 head B batch: 0 avg loss -0.392621 avg loss no lamb -0.392621 time 2019-08-05 06:15:36.421595
+Pre: time 2019-08-05 06:27:16.447718: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.52144927]
+	train_accs: [0.52144927]
+	best_train_sub_head: 0
+	worst: 0.52144927
+	avg: 0.52144927
+	best: 0.52144927
+
+Starting e_i: 23 2019-08-05 06:27:23.296807
+Model ind 1 epoch 23 head A batch: 0 avg loss -0.425200 avg loss no lamb -0.425200 time 2019-08-05 06:28:04.213209
+Model ind 1 epoch 23 head B batch: 0 avg loss -0.267780 avg loss no lamb -0.267780 time 2019-08-05 06:34:33.692768
+Pre: time 2019-08-05 06:46:17.070054: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 3), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.5359264]
+	train_accs: [0.5359264]
+	best_train_sub_head: 0
+	worst: 0.5359264
+	avg: 0.5359264
+	best: 0.5359264
+
+Starting e_i: 24 2019-08-05 06:46:18.718739
+Model ind 1 epoch 24 head A batch: 0 avg loss -0.468189 avg loss no lamb -0.468189 time 2019-08-05 06:46:59.552905
+Model ind 1 epoch 24 head B batch: 0 avg loss -0.575287 avg loss no lamb -0.575287 time 2019-08-05 06:53:31.173355
+Pre: time 2019-08-05 07:05:14.335425: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.5770664]
+	train_accs: [0.5770664]
+	best_train_sub_head: 0
+	worst: 0.5770664
+	avg: 0.5770664
+	best: 0.5770664
+
+Starting e_i: 25 2019-08-05 07:05:16.799350
+Model ind 1 epoch 25 head A batch: 0 avg loss -0.182778 avg loss no lamb -0.182778 time 2019-08-05 07:05:57.486602
+Model ind 1 epoch 25 head B batch: 0 avg loss -0.423601 avg loss no lamb -0.423601 time 2019-08-05 07:12:27.375915
+Pre: time 2019-08-05 07:24:12.549684: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 3), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.5644743]
+	train_accs: [0.5644743]
+	best_train_sub_head: 0
+	worst: 0.5644743
+	avg: 0.5644743
+	best: 0.5644743
+
+Starting e_i: 26 2019-08-05 07:24:14.226977
+Model ind 1 epoch 26 head A batch: 0 avg loss -0.483252 avg loss no lamb -0.483252 time 2019-08-05 07:24:54.691540
+Model ind 1 epoch 26 head B batch: 0 avg loss -0.509921 avg loss no lamb -0.509921 time 2019-08-05 07:31:23.685510
+Pre: time 2019-08-05 07:43:22.308851: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 3), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.54991716]
+	train_accs: [0.54991716]
+	best_train_sub_head: 0
+	worst: 0.54991716
+	avg: 0.54991716
+	best: 0.54991716
+
+Starting e_i: 27 2019-08-05 07:43:24.091103
+Model ind 1 epoch 27 head A batch: 0 avg loss -0.390374 avg loss no lamb -0.390374 time 2019-08-05 07:44:06.143443
+Model ind 1 epoch 27 head B batch: 0 avg loss -0.510423 avg loss no lamb -0.510423 time 2019-08-05 07:50:40.702426
+Pre: time 2019-08-05 08:02:26.344028: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.58240926]
+	train_accs: [0.58240926]
+	best_train_sub_head: 0
+	worst: 0.58240926
+	avg: 0.58240926
+	best: 0.58240926
+
+Starting e_i: 28 2019-08-05 08:02:28.960025
+Model ind 1 epoch 28 head A batch: 0 avg loss -0.470702 avg loss no lamb -0.470702 time 2019-08-05 08:03:09.749772
+Model ind 1 epoch 28 head B batch: 0 avg loss -0.601096 avg loss no lamb -0.601096 time 2019-08-05 08:09:40.126491
+Pre: time 2019-08-05 08:21:23.493628: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.5721021]
+	train_accs: [0.5721021]
+	best_train_sub_head: 0
+	worst: 0.5721021
+	avg: 0.5721021
+	best: 0.5721021
+
+Starting e_i: 29 2019-08-05 08:21:25.244363
+Model ind 1 epoch 29 head A batch: 0 avg loss -0.535617 avg loss no lamb -0.535617 time 2019-08-05 08:22:05.946171
+Model ind 1 epoch 29 head B batch: 0 avg loss -0.604982 avg loss no lamb -0.604982 time 2019-08-05 08:28:34.998919
+Pre: time 2019-08-05 08:40:21.723620: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.57911855]
+	train_accs: [0.57911855]
+	best_train_sub_head: 0
+	worst: 0.57911855
+	avg: 0.57911855
+	best: 0.57911855
+
+Starting e_i: 30 2019-08-05 08:40:23.447575
+Model ind 1 epoch 30 head A batch: 0 avg loss -0.472997 avg loss no lamb -0.472997 time 2019-08-05 08:41:04.113967
+Model ind 1 epoch 30 head B batch: 0 avg loss -0.546923 avg loss no lamb -0.546923 time 2019-08-05 08:47:32.395820
+Pre: time 2019-08-05 08:59:13.790309: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.572595]
+	train_accs: [0.572595]
+	best_train_sub_head: 0
+	worst: 0.572595
+	avg: 0.572595
+	best: 0.572595
+
+Starting e_i: 31 2019-08-05 08:59:15.569630
+Model ind 1 epoch 31 head A batch: 0 avg loss -0.570980 avg loss no lamb -0.570980 time 2019-08-05 08:59:55.967291
+Model ind 1 epoch 31 head B batch: 0 avg loss -0.685587 avg loss no lamb -0.685587 time 2019-08-05 09:06:24.355203
+Pre: time 2019-08-05 09:18:03.889123: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 6), (4, 5), (5, 9), (6, 11), (7, 8), (8, 2), (9, 10), (10, 1), (11, 7), (12, 4)]
+	test_accs: [0.57771]
+	train_accs: [0.57771]
+	best_train_sub_head: 0
+	worst: 0.57771
+	avg: 0.57771
+	best: 0.57771
+
+Starting e_i: 32 2019-08-05 09:18:05.623238
+Model ind 1 epoch 32 head A batch: 0 avg loss -0.340604 avg loss no lamb -0.340604 time 2019-08-05 09:18:46.239752
+Model ind 1 epoch 32 head B batch: 0 avg loss -0.638836 avg loss no lamb -0.638836 time 2019-08-05 09:25:13.686661
+Pre: time 2019-08-05 09:36:50.277044: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 6), (4, 5), (5, 9), (6, 11), (7, 8), (8, 2), (9, 10), (10, 1), (11, 7), (12, 4)]
+	test_accs: [0.59283]
+	train_accs: [0.59283]
+	best_train_sub_head: 0
+	worst: 0.59283
+	avg: 0.59283
+	best: 0.59283
+
+Starting e_i: 33 2019-08-05 09:36:52.897745
+Model ind 1 epoch 33 head A batch: 0 avg loss -0.679890 avg loss no lamb -0.679890 time 2019-08-05 09:37:33.510809
+Model ind 1 epoch 33 head B batch: 0 avg loss -0.274581 avg loss no lamb -0.274581 time 2019-08-05 09:44:03.498423
+Pre: time 2019-08-05 09:55:46.970398: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 10), (6, 9), (7, 8), (8, 2), (9, 1), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.56106573]
+	train_accs: [0.56106573]
+	best_train_sub_head: 0
+	worst: 0.56106573
+	avg: 0.56106573
+	best: 0.56106573
+
+Starting e_i: 34 2019-08-05 09:55:48.729841
+Model ind 1 epoch 34 head A batch: 0 avg loss -0.550128 avg loss no lamb -0.550128 time 2019-08-05 09:56:29.316575
+Model ind 1 epoch 34 head B batch: 0 avg loss -0.571057 avg loss no lamb -0.571057 time 2019-08-05 10:02:58.086083
+Pre: time 2019-08-05 10:14:34.689991: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 4), (10, 3), (11, 7), (12, 1)]
+	test_accs: [0.56704926]
+	train_accs: [0.56704926]
+	best_train_sub_head: 0
+	worst: 0.56704926
+	avg: 0.56704926
+	best: 0.56704926
+
+Starting e_i: 35 2019-08-05 10:14:36.471132
+Model ind 1 epoch 35 head A batch: 0 avg loss -0.634808 avg loss no lamb -0.634808 time 2019-08-05 10:15:16.900922
+Model ind 1 epoch 35 head B batch: 0 avg loss -0.669986 avg loss no lamb -0.669986 time 2019-08-05 10:21:45.768208
+Pre: time 2019-08-05 10:33:31.184829: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 6), (4, 5), (5, 9), (6, 11), (7, 8), (8, 2), (9, 10), (10, 1), (11, 7), (12, 4)]
+	test_accs: [0.5854821]
+	train_accs: [0.5854821]
+	best_train_sub_head: 0
+	worst: 0.5854821
+	avg: 0.5854821
+	best: 0.5854821
+
+Starting e_i: 36 2019-08-05 10:33:33.035660
+Model ind 1 epoch 36 head A batch: 0 avg loss -0.497482 avg loss no lamb -0.497482 time 2019-08-05 10:34:13.769182
+Model ind 1 epoch 36 head B batch: 0 avg loss -0.716071 avg loss no lamb -0.716071 time 2019-08-05 10:40:43.540853
+Pre: time 2019-08-05 10:52:24.982749: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 6), (4, 5), (5, 9), (6, 11), (7, 8), (8, 2), (9, 10), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.5897014]
+	train_accs: [0.5897014]
+	best_train_sub_head: 0
+	worst: 0.5897014
+	avg: 0.5897014
+	best: 0.5897014
+
+Starting e_i: 37 2019-08-05 10:52:26.778004
+Model ind 1 epoch 37 head A batch: 0 avg loss -0.352847 avg loss no lamb -0.352847 time 2019-08-05 10:53:07.581736
+Model ind 1 epoch 37 head B batch: 0 avg loss -0.451951 avg loss no lamb -0.451951 time 2019-08-05 10:59:39.958281
+Pre: time 2019-08-05 11:11:26.487577: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 3), (5, 9), (6, 10), (7, 8), (8, 2), (9, 5), (10, 1), (11, 7), (12, 4)]
+	test_accs: [0.50302]
+	train_accs: [0.50302]
+	best_train_sub_head: 0
+	worst: 0.50302
+	avg: 0.50302
+	best: 0.50302
+
+Starting e_i: 38 2019-08-05 11:11:28.294600
+Model ind 1 epoch 38 head A batch: 0 avg loss -0.652475 avg loss no lamb -0.652475 time 2019-08-05 11:12:08.890581
+Model ind 1 epoch 38 head B batch: 0 avg loss -0.418510 avg loss no lamb -0.418510 time 2019-08-05 11:18:36.117560
+Pre: time 2019-08-05 11:30:12.048995: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 6), (4, 5), (5, 9), (6, 10), (7, 8), (8, 2), (9, 1), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.591885]
+	train_accs: [0.591885]
+	best_train_sub_head: 0
+	worst: 0.591885
+	avg: 0.591885
+	best: 0.591885
+
+Starting e_i: 39 2019-08-05 11:30:13.908480
+Model ind 1 epoch 39 head A batch: 0 avg loss -0.519985 avg loss no lamb -0.519985 time 2019-08-05 11:30:54.495117
+Model ind 1 epoch 39 head B batch: 0 avg loss -0.461475 avg loss no lamb -0.461475 time 2019-08-05 11:37:24.614522
+Pre: time 2019-08-05 11:49:06.889443: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.5730264]
+	train_accs: [0.5730264]
+	best_train_sub_head: 0
+	worst: 0.5730264
+	avg: 0.5730264
+	best: 0.5730264
+
+Starting e_i: 40 2019-08-05 11:49:08.774726
+Model ind 1 epoch 40 head A batch: 0 avg loss -0.650023 avg loss no lamb -0.650023 time 2019-08-05 11:49:49.688275
+Model ind 1 epoch 40 head B batch: 0 avg loss -0.669563 avg loss no lamb -0.669563 time 2019-08-05 11:56:21.478741
+Pre: time 2019-08-05 12:08:04.104996: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.57188]
+	train_accs: [0.57188]
+	best_train_sub_head: 0
+	worst: 0.57188
+	avg: 0.57188
+	best: 0.57188
+
+Starting e_i: 41 2019-08-05 12:08:05.864230
+Model ind 1 epoch 41 head A batch: 0 avg loss -0.616590 avg loss no lamb -0.616590 time 2019-08-05 12:08:46.567209
+Model ind 1 epoch 41 head B batch: 0 avg loss -0.544391 avg loss no lamb -0.544391 time 2019-08-05 12:15:16.752948
+Pre: time 2019-08-05 12:27:00.834349: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 11), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 5), (11, 7), (12, 4)]
+	test_accs: [0.5614307]
+	train_accs: [0.5614307]
+	best_train_sub_head: 0
+	worst: 0.5614307
+	avg: 0.5614307
+	best: 0.5614307
+
+Starting e_i: 42 2019-08-05 12:27:02.585068
+Model ind 1 epoch 42 head A batch: 0 avg loss -0.452531 avg loss no lamb -0.452531 time 2019-08-05 12:27:43.356004
+Model ind 1 epoch 42 head B batch: 0 avg loss -0.557853 avg loss no lamb -0.557853 time 2019-08-05 12:34:13.026282
+Pre: time 2019-08-05 12:45:55.881337: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.60702217]
+	train_accs: [0.60702217]
+	best_train_sub_head: 0
+	worst: 0.60702217
+	avg: 0.60702217
+	best: 0.60702217
+
+Starting e_i: 43 2019-08-05 12:45:58.692625
+Model ind 1 epoch 43 head A batch: 0 avg loss -0.699668 avg loss no lamb -0.699668 time 2019-08-05 12:46:39.218132
+Model ind 1 epoch 43 head B batch: 0 avg loss -0.209712 avg loss no lamb -0.209712 time 2019-08-05 12:53:09.748054
+Pre: time 2019-08-05 13:04:54.588409: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 11), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 5), (11, 7), (12, 4)]
+	test_accs: [0.5401957]
+	train_accs: [0.5401957]
+	best_train_sub_head: 0
+	worst: 0.5401957
+	avg: 0.5401957
+	best: 0.5401957
+
+Starting e_i: 44 2019-08-05 13:04:56.342776
+Model ind 1 epoch 44 head A batch: 0 avg loss -0.848717 avg loss no lamb -0.848717 time 2019-08-05 13:05:37.030710
+Model ind 1 epoch 44 head B batch: 0 avg loss -0.730410 avg loss no lamb -0.730410 time 2019-08-05 13:12:03.518446
+Pre: time 2019-08-05 13:23:44.233695: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.597335]
+	train_accs: [0.597335]
+	best_train_sub_head: 0
+	worst: 0.597335
+	avg: 0.597335
+	best: 0.597335
+
+Starting e_i: 45 2019-08-05 13:23:45.948505
+Model ind 1 epoch 45 head A batch: 0 avg loss -0.717302 avg loss no lamb -0.717302 time 2019-08-05 13:24:27.074097
+Model ind 1 epoch 45 head B batch: 0 avg loss -0.302200 avg loss no lamb -0.302200 time 2019-08-05 13:30:59.268004
+Pre: time 2019-08-05 13:42:42.305825: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 11), (4, 5), (5, 10), (6, 9), (7, 8), (8, 2), (9, 1), (10, 6), (11, 7), (12, 4)]
+	test_accs: [0.58615]
+	train_accs: [0.58615]
+	best_train_sub_head: 0
+	worst: 0.58615
+	avg: 0.58615
+	best: 0.58615
+
+Starting e_i: 46 2019-08-05 13:42:43.993273
+Model ind 1 epoch 46 head A batch: 0 avg loss -0.676459 avg loss no lamb -0.676459 time 2019-08-05 13:43:24.774571
+Model ind 1 epoch 46 head B batch: 0 avg loss -0.737753 avg loss no lamb -0.737753 time 2019-08-05 13:49:53.824526
+Pre: time 2019-08-05 14:01:32.461669: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 11), (4, 5), (5, 10), (6, 9), (7, 8), (8, 2), (9, 1), (10, 6), (11, 7), (12, 4)]
+	test_accs: [0.58598644]
+	train_accs: [0.58598644]
+	best_train_sub_head: 0
+	worst: 0.58598644
+	avg: 0.58598644
+	best: 0.58598644
+
+Starting e_i: 47 2019-08-05 14:01:34.179898
+Model ind 1 epoch 47 head A batch: 0 avg loss -0.509157 avg loss no lamb -0.509157 time 2019-08-05 14:02:14.937622
+Model ind 1 epoch 47 head B batch: 0 avg loss -0.481803 avg loss no lamb -0.481803 time 2019-08-05 14:08:45.828726
+Pre: time 2019-08-05 14:20:30.912382: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.56607074]
+	train_accs: [0.56607074]
+	best_train_sub_head: 0
+	worst: 0.56607074
+	avg: 0.56607074
+	best: 0.56607074
+
+Starting e_i: 48 2019-08-05 14:20:32.736232
+Model ind 1 epoch 48 head A batch: 0 avg loss -0.858311 avg loss no lamb -0.858311 time 2019-08-05 14:21:13.256767
+Model ind 1 epoch 48 head B batch: 0 avg loss -0.835397 avg loss no lamb -0.835397 time 2019-08-05 14:27:42.968431
+Pre: time 2019-08-05 14:39:27.325109: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 11), (4, 5), (5, 10), (6, 9), (7, 8), (8, 2), (9, 1), (10, 6), (11, 7), (12, 4)]
+	test_accs: [0.5954507]
+	train_accs: [0.5954507]
+	best_train_sub_head: 0
+	worst: 0.5954507
+	avg: 0.5954507
+	best: 0.5954507
+
+Starting e_i: 49 2019-08-05 14:39:29.092595
+Model ind 1 epoch 49 head A batch: 0 avg loss -0.459446 avg loss no lamb -0.459446 time 2019-08-05 14:40:09.311123
+Model ind 1 epoch 49 head B batch: 0 avg loss -0.768378 avg loss no lamb -0.768378 time 2019-08-05 14:46:36.527075
+Pre: time 2019-08-05 14:58:13.755184: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.56517786]
+	train_accs: [0.56517786]
+	best_train_sub_head: 0
+	worst: 0.56517786
+	avg: 0.56517786
+	best: 0.56517786
+
+Starting e_i: 50 2019-08-05 14:58:15.547668
+Model ind 1 epoch 50 head A batch: 0 avg loss -0.707994 avg loss no lamb -0.707994 time 2019-08-05 14:58:56.432089
+Model ind 1 epoch 50 head B batch: 0 avg loss -0.851708 avg loss no lamb -0.851708 time 2019-08-05 15:05:25.823317
+Pre: time 2019-08-05 15:17:06.509386: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 3), (11, 7), (12, 4)]
+	test_accs: [0.5867786]
+	train_accs: [0.5867786]
+	best_train_sub_head: 0
+	worst: 0.5867786
+	avg: 0.5867786
+	best: 0.5867786
+
+Starting e_i: 51 2019-08-05 15:17:08.299223
+Model ind 1 epoch 51 head A batch: 0 avg loss -0.685675 avg loss no lamb -0.685675 time 2019-08-05 15:17:48.772726
+Model ind 1 epoch 51 head B batch: 0 avg loss -0.785273 avg loss no lamb -0.785273 time 2019-08-05 15:24:16.726000
+Pre: time 2019-08-05 15:36:00.307810: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.60425]
+	train_accs: [0.60425]
+	best_train_sub_head: 0
+	worst: 0.60425
+	avg: 0.60425
+	best: 0.60425
+
+Starting e_i: 52 2019-08-05 15:36:02.039170
+Model ind 1 epoch 52 head A batch: 0 avg loss -0.734211 avg loss no lamb -0.734211 time 2019-08-05 15:36:42.791176
+Model ind 1 epoch 52 head B batch: 0 avg loss -0.804247 avg loss no lamb -0.804247 time 2019-08-05 15:43:12.186104
+Pre: time 2019-08-05 15:55:00.271637: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 3), (2, 12), (3, 11), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 5), (11, 7), (12, 4)]
+	test_accs: [0.5672621]
+	train_accs: [0.5672621]
+	best_train_sub_head: 0
+	worst: 0.5672621
+	avg: 0.5672621
+	best: 0.5672621
+
+Starting e_i: 53 2019-08-05 15:55:02.039039
+Model ind 1 epoch 53 head A batch: 0 avg loss -0.655046 avg loss no lamb -0.655046 time 2019-08-05 15:55:43.130340
+Model ind 1 epoch 53 head B batch: 0 avg loss -0.720872 avg loss no lamb -0.720872 time 2019-08-05 16:02:14.396135
+Pre: time 2019-08-05 16:14:03.307179: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.592985]
+	train_accs: [0.592985]
+	best_train_sub_head: 0
+	worst: 0.592985
+	avg: 0.592985
+	best: 0.592985
+
+Starting e_i: 54 2019-08-05 16:14:05.056843
+Model ind 1 epoch 54 head A batch: 0 avg loss -0.778903 avg loss no lamb -0.778903 time 2019-08-05 16:14:45.827934
+Model ind 1 epoch 54 head B batch: 0 avg loss -0.618505 avg loss no lamb -0.618505 time 2019-08-05 16:21:15.401676
+Pre: time 2019-08-05 16:33:01.752170: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.6178907]
+	train_accs: [0.6178907]
+	best_train_sub_head: 0
+	worst: 0.6178907
+	avg: 0.6178907
+	best: 0.6178907
+
+Starting e_i: 55 2019-08-05 16:33:04.583169
+Model ind 1 epoch 55 head A batch: 0 avg loss -0.712031 avg loss no lamb -0.712031 time 2019-08-05 16:33:45.158734
+Model ind 1 epoch 55 head B batch: 0 avg loss -0.839128 avg loss no lamb -0.839128 time 2019-08-05 16:40:15.811966
+Pre: time 2019-08-05 16:52:03.273331: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.61684]
+	train_accs: [0.61684]
+	best_train_sub_head: 0
+	worst: 0.61684
+	avg: 0.61684
+	best: 0.61684
+
+Starting e_i: 56 2019-08-05 16:52:05.119086
+Model ind 1 epoch 56 head A batch: 0 avg loss -0.772805 avg loss no lamb -0.772805 time 2019-08-05 16:52:46.160334
+Model ind 1 epoch 56 head B batch: 0 avg loss -0.533010 avg loss no lamb -0.533010 time 2019-08-05 16:59:16.196110
+Pre: time 2019-08-05 17:11:05.038859: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.60311645]
+	train_accs: [0.60311645]
+	best_train_sub_head: 0
+	worst: 0.60311645
+	avg: 0.60311645
+	best: 0.60311645
+
+Starting e_i: 57 2019-08-05 17:11:06.844275
+Model ind 1 epoch 57 head A batch: 0 avg loss -0.599640 avg loss no lamb -0.599640 time 2019-08-05 17:11:47.568861
+Model ind 1 epoch 57 head B batch: 0 avg loss -0.846943 avg loss no lamb -0.846943 time 2019-08-05 17:18:17.322487
+Pre: time 2019-08-05 17:30:03.363603: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.60037357]
+	train_accs: [0.60037357]
+	best_train_sub_head: 0
+	worst: 0.60037357
+	avg: 0.60037357
+	best: 0.60037357
+
+Starting e_i: 58 2019-08-05 17:30:05.135183
+Model ind 1 epoch 58 head A batch: 0 avg loss -0.642076 avg loss no lamb -0.642076 time 2019-08-05 17:30:45.984042
+Model ind 1 epoch 58 head B batch: 0 avg loss -0.890693 avg loss no lamb -0.890693 time 2019-08-05 17:37:15.771110
+Pre: time 2019-08-05 17:48:58.675637: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.602495]
+	train_accs: [0.602495]
+	best_train_sub_head: 0
+	worst: 0.602495
+	avg: 0.602495
+	best: 0.602495
+
+Starting e_i: 59 2019-08-05 17:49:00.469553
+Model ind 1 epoch 59 head A batch: 0 avg loss -0.719270 avg loss no lamb -0.719270 time 2019-08-05 17:49:41.138957
+Model ind 1 epoch 59 head B batch: 0 avg loss -0.790430 avg loss no lamb -0.790430 time 2019-08-05 17:56:13.464086
+Pre: time 2019-08-05 18:08:10.417554: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.60955715]
+	train_accs: [0.60955715]
+	best_train_sub_head: 0
+	worst: 0.60955715
+	avg: 0.60955715
+	best: 0.60955715
+
+Starting e_i: 60 2019-08-05 18:08:12.380208
+Model ind 1 epoch 60 head A batch: 0 avg loss -0.887724 avg loss no lamb -0.887724 time 2019-08-05 18:08:53.478648
+Model ind 1 epoch 60 head B batch: 0 avg loss -0.726850 avg loss no lamb -0.726850 time 2019-08-05 18:15:23.660930
+Pre: time 2019-08-05 18:27:04.386159: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 3), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 5), (11, 7), (12, 4)]
+	test_accs: [0.54033357]
+	train_accs: [0.54033357]
+	best_train_sub_head: 0
+	worst: 0.54033357
+	avg: 0.54033357
+	best: 0.54033357
+
+Starting e_i: 61 2019-08-05 18:27:06.282365
+Model ind 1 epoch 61 head A batch: 0 avg loss -0.712075 avg loss no lamb -0.712075 time 2019-08-05 18:27:47.166359
+Model ind 1 epoch 61 head B batch: 0 avg loss -0.586856 avg loss no lamb -0.586856 time 2019-08-05 18:34:17.623077
+Pre: time 2019-08-05 18:46:15.336402: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.606535]
+	train_accs: [0.606535]
+	best_train_sub_head: 0
+	worst: 0.606535
+	avg: 0.606535
+	best: 0.606535
+
+Starting e_i: 62 2019-08-05 18:46:17.297012
+Model ind 1 epoch 62 head A batch: 0 avg loss -0.846059 avg loss no lamb -0.846059 time 2019-08-05 18:46:58.219605
+Model ind 1 epoch 62 head B batch: 0 avg loss -0.911173 avg loss no lamb -0.911173 time 2019-08-05 18:53:33.568562
+Pre: time 2019-08-05 19:05:25.845822: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.58783215]
+	train_accs: [0.58783215]
+	best_train_sub_head: 0
+	worst: 0.58783215
+	avg: 0.58783215
+	best: 0.58783215
+
+Starting e_i: 63 2019-08-05 19:05:27.808454
+Model ind 1 epoch 63 head A batch: 0 avg loss -0.863253 avg loss no lamb -0.863253 time 2019-08-05 19:06:09.030515
+Model ind 1 epoch 63 head B batch: 0 avg loss -0.866989 avg loss no lamb -0.866989 time 2019-08-05 19:12:42.439851
+Pre: time 2019-08-05 19:24:32.454044: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59545785]
+	train_accs: [0.59545785]
+	best_train_sub_head: 0
+	worst: 0.59545785
+	avg: 0.59545785
+	best: 0.59545785
+
+Starting e_i: 64 2019-08-05 19:24:34.399315
+Model ind 1 epoch 64 head A batch: 0 avg loss -0.919776 avg loss no lamb -0.919776 time 2019-08-05 19:25:15.140109
+Model ind 1 epoch 64 head B batch: 0 avg loss -0.740813 avg loss no lamb -0.740813 time 2019-08-05 19:31:48.591755
+Pre: time 2019-08-05 19:43:37.962168: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.60396284]
+	train_accs: [0.60396284]
+	best_train_sub_head: 0
+	worst: 0.60396284
+	avg: 0.60396284
+	best: 0.60396284
+
+Starting e_i: 65 2019-08-05 19:43:39.964185
+Model ind 1 epoch 65 head A batch: 0 avg loss -0.868243 avg loss no lamb -0.868243 time 2019-08-05 19:44:20.910708
+Model ind 1 epoch 65 head B batch: 0 avg loss -0.826060 avg loss no lamb -0.826060 time 2019-08-05 19:50:52.030109
+Pre: time 2019-08-05 20:02:44.415477: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.6090471]
+	train_accs: [0.6090471]
+	best_train_sub_head: 0
+	worst: 0.6090471
+	avg: 0.6090471
+	best: 0.6090471
+
+Starting e_i: 66 2019-08-05 20:02:46.376160
+Model ind 1 epoch 66 head A batch: 0 avg loss -0.914067 avg loss no lamb -0.914067 time 2019-08-05 20:03:27.765048
+Model ind 1 epoch 66 head B batch: 0 avg loss -0.805800 avg loss no lamb -0.805800 time 2019-08-05 20:10:02.678611
+Pre: time 2019-08-05 20:21:52.248513: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5642193]
+	train_accs: [0.5642193]
+	best_train_sub_head: 0
+	worst: 0.5642193
+	avg: 0.5642193
+	best: 0.5642193
+
+Starting e_i: 67 2019-08-05 20:21:54.179097
+Model ind 1 epoch 67 head A batch: 0 avg loss -0.890023 avg loss no lamb -0.890023 time 2019-08-05 20:22:35.077039
+Model ind 1 epoch 67 head B batch: 0 avg loss -0.705497 avg loss no lamb -0.705497 time 2019-08-05 20:29:08.166443
+Pre: time 2019-08-05 20:40:55.158831: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59142]
+	train_accs: [0.59142]
+	best_train_sub_head: 0
+	worst: 0.59142
+	avg: 0.59142
+	best: 0.59142
+
+Starting e_i: 68 2019-08-05 20:40:57.108515
+Model ind 1 epoch 68 head A batch: 0 avg loss -0.441454 avg loss no lamb -0.441454 time 2019-08-05 20:41:37.530292
+Model ind 1 epoch 68 head B batch: 0 avg loss -0.696342 avg loss no lamb -0.696342 time 2019-08-05 20:48:08.058951
+Pre: time 2019-08-05 20:59:53.244856: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5432443]
+	train_accs: [0.5432443]
+	best_train_sub_head: 0
+	worst: 0.5432443
+	avg: 0.5432443
+	best: 0.5432443
+
+Starting e_i: 69 2019-08-05 20:59:55.657003
+Model ind 1 epoch 69 head A batch: 0 avg loss -0.804539 avg loss no lamb -0.804539 time 2019-08-05 21:00:36.396996
+Model ind 1 epoch 69 head B batch: 0 avg loss -0.828416 avg loss no lamb -0.828416 time 2019-08-05 21:07:04.740732
+Pre: time 2019-08-05 21:18:48.408548: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 4), (10, 1), (11, 7), (12, 3)]
+	test_accs: [0.60777783]
+	train_accs: [0.60777783]
+	best_train_sub_head: 0
+	worst: 0.60777783
+	avg: 0.60777783
+	best: 0.60777783
+
+Starting e_i: 70 2019-08-05 21:18:50.384332
+Model ind 1 epoch 70 head A batch: 0 avg loss -0.833059 avg loss no lamb -0.833059 time 2019-08-05 21:19:30.939593
+Model ind 1 epoch 70 head B batch: 0 avg loss -0.745726 avg loss no lamb -0.745726 time 2019-08-05 21:25:58.590482
+Pre: time 2019-08-05 21:37:43.521052: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 9), (4, 5), (5, 10), (6, 6), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.60051]
+	train_accs: [0.60051]
+	best_train_sub_head: 0
+	worst: 0.60051
+	avg: 0.60051
+	best: 0.60051
+
+Starting e_i: 71 2019-08-05 21:37:45.530417
+Model ind 1 epoch 71 head A batch: 0 avg loss -0.836425 avg loss no lamb -0.836425 time 2019-08-05 21:38:26.504706
+Model ind 1 epoch 71 head B batch: 0 avg loss -0.781698 avg loss no lamb -0.781698 time 2019-08-05 21:44:59.101581
+Pre: time 2019-08-05 21:56:46.275098: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 6), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5592636]
+	train_accs: [0.5592636]
+	best_train_sub_head: 0
+	worst: 0.5592636
+	avg: 0.5592636
+	best: 0.5592636
+
+Starting e_i: 72 2019-08-05 21:56:48.286891
+Model ind 1 epoch 72 head A batch: 0 avg loss -0.882133 avg loss no lamb -0.882133 time 2019-08-05 21:57:29.106849
+Model ind 1 epoch 72 head B batch: 0 avg loss -0.586552 avg loss no lamb -0.586552 time 2019-08-05 22:04:00.744085
+Pre: time 2019-08-05 22:15:46.737104: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5889121]
+	train_accs: [0.5889121]
+	best_train_sub_head: 0
+	worst: 0.5889121
+	avg: 0.5889121
+	best: 0.5889121
+
+Starting e_i: 73 2019-08-05 22:15:48.735094
+Model ind 1 epoch 73 head A batch: 0 avg loss -0.796546 avg loss no lamb -0.796546 time 2019-08-05 22:16:28.784347
+Model ind 1 epoch 73 head B batch: 0 avg loss -0.638238 avg loss no lamb -0.638238 time 2019-08-05 22:22:57.128033
+Pre: time 2019-08-05 22:34:46.771582: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5677386]
+	train_accs: [0.5677386]
+	best_train_sub_head: 0
+	worst: 0.5677386
+	avg: 0.5677386
+	best: 0.5677386
+
+Starting e_i: 74 2019-08-05 22:34:48.936400
+Model ind 1 epoch 74 head A batch: 0 avg loss -0.826563 avg loss no lamb -0.826563 time 2019-08-05 22:35:29.651370
+Model ind 1 epoch 74 head B batch: 0 avg loss -0.352910 avg loss no lamb -0.352910 time 2019-08-05 22:42:07.255783
+Pre: time 2019-08-05 22:53:49.037994: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59066784]
+	train_accs: [0.59066784]
+	best_train_sub_head: 0
+	worst: 0.59066784
+	avg: 0.59066784
+	best: 0.59066784
+
+Starting e_i: 75 2019-08-05 22:53:51.031546
+Model ind 1 epoch 75 head A batch: 0 avg loss -0.651738 avg loss no lamb -0.651738 time 2019-08-05 22:54:31.613824
+Model ind 1 epoch 75 head B batch: 0 avg loss -0.669598 avg loss no lamb -0.669598 time 2019-08-05 23:01:03.544522
+Pre: time 2019-08-05 23:12:49.969754: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.6026857]
+	train_accs: [0.6026857]
+	best_train_sub_head: 0
+	worst: 0.6026857
+	avg: 0.6026857
+	best: 0.6026857
+
+Starting e_i: 76 2019-08-05 23:12:51.966542
+Model ind 1 epoch 76 head A batch: 0 avg loss -0.640536 avg loss no lamb -0.640536 time 2019-08-05 23:13:32.400531
+Model ind 1 epoch 76 head B batch: 0 avg loss -0.860341 avg loss no lamb -0.860341 time 2019-08-05 23:20:00.028434
+Pre: time 2019-08-05 23:31:43.457323: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.6019907]
+	train_accs: [0.6019907]
+	best_train_sub_head: 0
+	worst: 0.6019907
+	avg: 0.6019907
+	best: 0.6019907
+
+Starting e_i: 77 2019-08-05 23:31:45.460424
+Model ind 1 epoch 77 head A batch: 0 avg loss -0.808914 avg loss no lamb -0.808914 time 2019-08-05 23:32:25.992771
+Model ind 1 epoch 77 head B batch: 0 avg loss -0.880506 avg loss no lamb -0.880506 time 2019-08-05 23:38:53.656518
+Pre: time 2019-08-05 23:50:35.441083: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59627783]
+	train_accs: [0.59627783]
+	best_train_sub_head: 0
+	worst: 0.59627783
+	avg: 0.59627783
+	best: 0.59627783
+
+Starting e_i: 78 2019-08-05 23:50:37.463089
+Model ind 1 epoch 78 head A batch: 0 avg loss -0.627975 avg loss no lamb -0.627975 time 2019-08-05 23:51:18.899348
+Model ind 1 epoch 78 head B batch: 0 avg loss -0.884570 avg loss no lamb -0.884570 time 2019-08-05 23:57:50.415298
+Pre: time 2019-08-06 00:09:41.210867: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.6138957]
+	train_accs: [0.6138957]
+	best_train_sub_head: 0
+	worst: 0.6138957
+	avg: 0.6138957
+	best: 0.6138957
+
+Starting e_i: 79 2019-08-06 00:09:43.268880
+Model ind 1 epoch 79 head A batch: 0 avg loss -0.757321 avg loss no lamb -0.757321 time 2019-08-06 00:10:24.149110
+Model ind 1 epoch 79 head B batch: 0 avg loss -0.759052 avg loss no lamb -0.759052 time 2019-08-06 00:16:57.498083
+Pre: time 2019-08-06 00:28:47.874511: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.6105821]
+	train_accs: [0.6105821]
+	best_train_sub_head: 0
+	worst: 0.6105821
+	avg: 0.6105821
+	best: 0.6105821
+
+Starting e_i: 80 2019-08-06 00:28:49.912069
+Model ind 1 epoch 80 head A batch: 0 avg loss -0.923674 avg loss no lamb -0.923674 time 2019-08-06 00:29:30.855676
+Model ind 1 epoch 80 head B batch: 0 avg loss -0.726519 avg loss no lamb -0.726519 time 2019-08-06 00:36:03.972670
+Pre: time 2019-08-06 00:47:51.610557: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 9), (4, 10), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59377074]
+	train_accs: [0.59377074]
+	best_train_sub_head: 0
+	worst: 0.59377074
+	avg: 0.59377074
+	best: 0.59377074
+
+Starting e_i: 81 2019-08-06 00:47:53.619106
+Model ind 1 epoch 81 head A batch: 0 avg loss -0.879876 avg loss no lamb -0.879876 time 2019-08-06 00:48:34.460813
+Model ind 1 epoch 81 head B batch: 0 avg loss -0.745592 avg loss no lamb -0.745592 time 2019-08-06 00:55:06.974248
+Pre: time 2019-08-06 01:06:52.684588: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.58757716]
+	train_accs: [0.58757716]
+	best_train_sub_head: 0
+	worst: 0.58757716
+	avg: 0.58757716
+	best: 0.58757716
+
+Starting e_i: 82 2019-08-06 01:06:54.698188
+Model ind 1 epoch 82 head A batch: 0 avg loss -0.827755 avg loss no lamb -0.827755 time 2019-08-06 01:07:36.013125
+Model ind 1 epoch 82 head B batch: 0 avg loss -0.855013 avg loss no lamb -0.855013 time 2019-08-06 01:14:07.977617
+Pre: time 2019-08-06 01:25:55.091686: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.60075927]
+	train_accs: [0.60075927]
+	best_train_sub_head: 0
+	worst: 0.60075927
+	avg: 0.60075927
+	best: 0.60075927
+
+Starting e_i: 83 2019-08-06 01:25:57.776891
+Model ind 1 epoch 83 head A batch: 0 avg loss -0.973709 avg loss no lamb -0.973709 time 2019-08-06 01:26:38.102101
+Model ind 1 epoch 83 head B batch: 0 avg loss -0.925455 avg loss no lamb -0.925455 time 2019-08-06 01:33:05.979308
+Pre: time 2019-08-06 01:44:45.936320: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.6059843]
+	train_accs: [0.6059843]
+	best_train_sub_head: 0
+	worst: 0.6059843
+	avg: 0.6059843
+	best: 0.6059843
+
+Starting e_i: 84 2019-08-06 01:44:47.735367
+Model ind 1 epoch 84 head A batch: 0 avg loss -0.997468 avg loss no lamb -0.997468 time 2019-08-06 01:45:28.653289
+Model ind 1 epoch 84 head B batch: 0 avg loss -0.925363 avg loss no lamb -0.925363 time 2019-08-06 01:51:57.202820
+Pre: time 2019-08-06 02:03:39.538361: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.57775354]
+	train_accs: [0.57775354]
+	best_train_sub_head: 0
+	worst: 0.57775354
+	avg: 0.57775354
+	best: 0.57775354
+
+Starting e_i: 85 2019-08-06 02:03:41.337534
+Model ind 1 epoch 85 head A batch: 0 avg loss -0.933054 avg loss no lamb -0.933054 time 2019-08-06 02:04:22.388190
+Model ind 1 epoch 85 head B batch: 0 avg loss -0.937339 avg loss no lamb -0.937339 time 2019-08-06 02:10:55.011087
+Pre: time 2019-08-06 02:22:42.161746: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.6064307]
+	train_accs: [0.6064307]
+	best_train_sub_head: 0
+	worst: 0.6064307
+	avg: 0.6064307
+	best: 0.6064307
+
+Starting e_i: 86 2019-08-06 02:22:44.247858
+Model ind 1 epoch 86 head A batch: 0 avg loss -0.807698 avg loss no lamb -0.807698 time 2019-08-06 02:23:24.931177
+Model ind 1 epoch 86 head B batch: 0 avg loss -0.763982 avg loss no lamb -0.763982 time 2019-08-06 02:29:57.094364
+Pre: time 2019-08-06 02:41:43.593046: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59187716]
+	train_accs: [0.59187716]
+	best_train_sub_head: 0
+	worst: 0.59187716
+	avg: 0.59187716
+	best: 0.59187716
+
+Starting e_i: 87 2019-08-06 02:41:45.407739
+Model ind 1 epoch 87 head A batch: 0 avg loss -0.801445 avg loss no lamb -0.801445 time 2019-08-06 02:42:25.997543
+Model ind 1 epoch 87 head B batch: 0 avg loss -0.658552 avg loss no lamb -0.658552 time 2019-08-06 02:48:54.826317
+Pre: time 2019-08-06 03:00:39.327789: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 9), (5, 1), (6, 6), (7, 8), (8, 2), (9, 5), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5685]
+	train_accs: [0.5685]
+	best_train_sub_head: 0
+	worst: 0.5685
+	avg: 0.5685
+	best: 0.5685
+
+Starting e_i: 88 2019-08-06 03:00:41.126158
+Model ind 1 epoch 88 head A batch: 0 avg loss -0.896587 avg loss no lamb -0.896587 time 2019-08-06 03:01:21.841440
+Model ind 1 epoch 88 head B batch: 0 avg loss -0.906767 avg loss no lamb -0.906767 time 2019-08-06 03:07:52.241814
+Pre: time 2019-08-06 03:19:34.541321: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 6), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5763707]
+	train_accs: [0.5763707]
+	best_train_sub_head: 0
+	worst: 0.5763707
+	avg: 0.5763707
+	best: 0.5763707
+
+Starting e_i: 89 2019-08-06 03:19:36.671867
+Model ind 1 epoch 89 head A batch: 0 avg loss -0.967160 avg loss no lamb -0.967160 time 2019-08-06 03:20:17.432339
+Model ind 1 epoch 89 head B batch: 0 avg loss -0.947221 avg loss no lamb -0.947221 time 2019-08-06 03:26:46.282893
+Pre: time 2019-08-06 03:38:29.482019: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59694356]
+	train_accs: [0.59694356]
+	best_train_sub_head: 0
+	worst: 0.59694356
+	avg: 0.59694356
+	best: 0.59694356
+
+Starting e_i: 90 2019-08-06 03:38:31.286699
+Model ind 1 epoch 90 head A batch: 0 avg loss -0.737335 avg loss no lamb -0.737335 time 2019-08-06 03:39:11.853557
+Model ind 1 epoch 90 head B batch: 0 avg loss -0.543975 avg loss no lamb -0.543975 time 2019-08-06 03:45:43.700161
+Pre: time 2019-08-06 03:57:34.119033: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.583925]
+	train_accs: [0.583925]
+	best_train_sub_head: 0
+	worst: 0.583925
+	avg: 0.583925
+	best: 0.583925
+
+Starting e_i: 91 2019-08-06 03:57:35.920347
+Model ind 1 epoch 91 head A batch: 0 avg loss -0.721045 avg loss no lamb -0.721045 time 2019-08-06 03:58:16.802069
+Model ind 1 epoch 91 head B batch: 0 avg loss -0.836576 avg loss no lamb -0.836576 time 2019-08-06 04:04:48.398709
+Pre: time 2019-08-06 04:16:35.768431: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5724736]
+	train_accs: [0.5724736]
+	best_train_sub_head: 0
+	worst: 0.5724736
+	avg: 0.5724736
+	best: 0.5724736
+
+Starting e_i: 92 2019-08-06 04:16:37.585860
+Model ind 1 epoch 92 head A batch: 0 avg loss -0.884890 avg loss no lamb -0.884890 time 2019-08-06 04:17:18.469320
+Model ind 1 epoch 92 head B batch: 0 avg loss -0.801791 avg loss no lamb -0.801791 time 2019-08-06 04:23:47.056708
+Pre: time 2019-08-06 04:35:32.217851: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.598435]
+	train_accs: [0.598435]
+	best_train_sub_head: 0
+	worst: 0.598435
+	avg: 0.598435
+	best: 0.598435
+
+Starting e_i: 93 2019-08-06 04:35:34.037816
+Model ind 1 epoch 93 head A batch: 0 avg loss -0.823826 avg loss no lamb -0.823826 time 2019-08-06 04:36:15.005703
+Model ind 1 epoch 93 head B batch: 0 avg loss -0.708660 avg loss no lamb -0.708660 time 2019-08-06 04:42:46.361318
+Pre: time 2019-08-06 04:54:30.995389: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5905107]
+	train_accs: [0.5905107]
+	best_train_sub_head: 0
+	worst: 0.5905107
+	avg: 0.5905107
+	best: 0.5905107
+
+Starting e_i: 94 2019-08-06 04:54:32.810503
+Model ind 1 epoch 94 head A batch: 0 avg loss -0.929328 avg loss no lamb -0.929328 time 2019-08-06 04:55:13.335039
+Model ind 1 epoch 94 head B batch: 0 avg loss -0.928754 avg loss no lamb -0.928754 time 2019-08-06 05:01:43.062163
+Pre: time 2019-08-06 05:13:27.330002: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5602286]
+	train_accs: [0.5602286]
+	best_train_sub_head: 0
+	worst: 0.5602286
+	avg: 0.5602286
+	best: 0.5602286
+
+Starting e_i: 95 2019-08-06 05:13:29.151616
+Model ind 1 epoch 95 head A batch: 0 avg loss -0.741523 avg loss no lamb -0.741523 time 2019-08-06 05:14:10.104735
+Model ind 1 epoch 95 head B batch: 0 avg loss -0.778904 avg loss no lamb -0.778904 time 2019-08-06 05:20:39.501940
+Pre: time 2019-08-06 05:32:24.073966: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.59969]
+	train_accs: [0.59969]
+	best_train_sub_head: 0
+	worst: 0.59969
+	avg: 0.59969
+	best: 0.59969
+
+Starting e_i: 96 2019-08-06 05:32:25.890697
+Model ind 1 epoch 96 head A batch: 0 avg loss -0.694278 avg loss no lamb -0.694278 time 2019-08-06 05:33:06.938768
+Model ind 1 epoch 96 head B batch: 0 avg loss -0.891796 avg loss no lamb -0.891796 time 2019-08-06 05:39:37.530921
+Pre: time 2019-08-06 05:51:25.079296: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.56381357]
+	train_accs: [0.56381357]
+	best_train_sub_head: 0
+	worst: 0.56381357
+	avg: 0.56381357
+	best: 0.56381357
+
+Starting e_i: 97 2019-08-06 05:51:26.899142
+Model ind 1 epoch 97 head A batch: 0 avg loss -0.703223 avg loss no lamb -0.703223 time 2019-08-06 05:52:07.835366
+Model ind 1 epoch 97 head B batch: 0 avg loss -0.767064 avg loss no lamb -0.767064 time 2019-08-06 05:58:38.814678
+Pre: time 2019-08-06 06:10:19.229944: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 3), (5, 10), (6, 9), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.58125645]
+	train_accs: [0.58125645]
+	best_train_sub_head: 0
+	worst: 0.58125645
+	avg: 0.58125645
+	best: 0.58125645
+
+Starting e_i: 98 2019-08-06 06:10:21.067064
+Model ind 1 epoch 98 head A batch: 0 avg loss -0.369160 avg loss no lamb -0.369160 time 2019-08-06 06:11:01.809887
+Model ind 1 epoch 98 head B batch: 0 avg loss -0.917340 avg loss no lamb -0.917340 time 2019-08-06 06:17:31.345922
+Pre: time 2019-08-06 06:29:15.473781: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5600443]
+	train_accs: [0.5600443]
+	best_train_sub_head: 0
+	worst: 0.5600443
+	avg: 0.5600443
+	best: 0.5600443
+
+Starting e_i: 99 2019-08-06 06:29:17.325050
+Model ind 1 epoch 99 head A batch: 0 avg loss -0.764913 avg loss no lamb -0.764913 time 2019-08-06 06:29:58.394357
+Model ind 1 epoch 99 head B batch: 0 avg loss -0.570752 avg loss no lamb -0.570752 time 2019-08-06 06:36:29.481647
+Pre: time 2019-08-06 06:48:12.381130: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 6), (7, 8), (8, 2), (9, 1), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5823671]
+	train_accs: [0.5823671]
+	best_train_sub_head: 0
+	worst: 0.5823671
+	avg: 0.5823671
+	best: 0.5823671
+
+Starting e_i: 100 2019-08-06 06:48:14.236584
+Model ind 1 epoch 100 head A batch: 0 avg loss -0.945475 avg loss no lamb -0.945475 time 2019-08-06 06:48:54.836545
+Model ind 1 epoch 100 head B batch: 0 avg loss -0.826446 avg loss no lamb -0.826446 time 2019-08-06 06:55:25.840950
+Pre: time 2019-08-06 07:07:06.205716: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 3), (5, 10), (6, 9), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.60115784]
+	train_accs: [0.60115784]
+	best_train_sub_head: 0
+	worst: 0.60115784
+	avg: 0.60115784
+	best: 0.60115784
+
+Starting e_i: 101 2019-08-06 07:07:08.059658
+Model ind 1 epoch 101 head A batch: 0 avg loss -0.657581 avg loss no lamb -0.657581 time 2019-08-06 07:07:48.914433
+Model ind 1 epoch 101 head B batch: 0 avg loss -0.720280 avg loss no lamb -0.720280 time 2019-08-06 07:14:18.587472
+Pre: time 2019-08-06 07:26:03.849084: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.54923713]
+	train_accs: [0.54923713]
+	best_train_sub_head: 0
+	worst: 0.54923713
+	avg: 0.54923713
+	best: 0.54923713
+
+Starting e_i: 102 2019-08-06 07:26:05.798371
+Model ind 1 epoch 102 head A batch: 0 avg loss -1.012956 avg loss no lamb -1.012956 time 2019-08-06 07:26:46.551939
+Model ind 1 epoch 102 head B batch: 0 avg loss -0.676743 avg loss no lamb -0.676743 time 2019-08-06 07:33:15.479781
+Pre: time 2019-08-06 07:45:16.533021: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 3), (5, 10), (6, 9), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.58503854]
+	train_accs: [0.58503854]
+	best_train_sub_head: 0
+	worst: 0.58503854
+	avg: 0.58503854
+	best: 0.58503854
+
+Starting e_i: 103 2019-08-06 07:45:18.452541
+Model ind 1 epoch 103 head A batch: 0 avg loss -0.734157 avg loss no lamb -0.734157 time 2019-08-06 07:46:01.322322
+Model ind 1 epoch 103 head B batch: 0 avg loss -0.938953 avg loss no lamb -0.938953 time 2019-08-06 07:52:36.433571
+Pre: time 2019-08-06 08:04:19.435606: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 3), (10, 6), (11, 7), (12, 4)]
+	test_accs: [0.604725]
+	train_accs: [0.604725]
+	best_train_sub_head: 0
+	worst: 0.604725
+	avg: 0.604725
+	best: 0.604725
+
+Starting e_i: 104 2019-08-06 08:04:21.309180
+Model ind 1 epoch 104 head A batch: 0 avg loss -0.969347 avg loss no lamb -0.969347 time 2019-08-06 08:05:02.474058
+Model ind 1 epoch 104 head B batch: 0 avg loss -0.813343 avg loss no lamb -0.813343 time 2019-08-06 08:11:32.394782
+Pre: time 2019-08-06 08:23:19.133184: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 1), (7, 8), (8, 2), (9, 6), (10, 4), (11, 7), (12, 3)]
+	test_accs: [0.5923579]
+	train_accs: [0.5923579]
+	best_train_sub_head: 0
+	worst: 0.5923579
+	avg: 0.5923579
+	best: 0.5923579
+
+Starting e_i: 105 2019-08-06 08:23:20.985387
+Model ind 1 epoch 105 head A batch: 0 avg loss -0.682005 avg loss no lamb -0.682005 time 2019-08-06 08:24:02.135692
+Model ind 1 epoch 105 head B batch: 0 avg loss -0.958741 avg loss no lamb -0.958741 time 2019-08-06 08:30:32.810317
+Pre: time 2019-08-06 08:42:20.159864: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 3), (10, 6), (11, 7), (12, 4)]
+	test_accs: [0.5914657]
+	train_accs: [0.5914657]
+	best_train_sub_head: 0
+	worst: 0.5914657
+	avg: 0.5914657
+	best: 0.5914657
+
+Starting e_i: 106 2019-08-06 08:42:22.029559
+Model ind 1 epoch 106 head A batch: 0 avg loss -0.878140 avg loss no lamb -0.878140 time 2019-08-06 08:43:02.890232
+Model ind 1 epoch 106 head B batch: 0 avg loss -0.817700 avg loss no lamb -0.817700 time 2019-08-06 08:49:32.822022
+Pre: time 2019-08-06 09:01:17.443996: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 10), (4, 5), (5, 9), (6, 6), (7, 8), (8, 2), (9, 3), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.61067426]
+	train_accs: [0.61067426]
+	best_train_sub_head: 0
+	worst: 0.61067426
+	avg: 0.61067426
+	best: 0.61067426
+
+Starting e_i: 107 2019-08-06 09:01:19.302811
+Model ind 1 epoch 107 head A batch: 0 avg loss -1.007511 avg loss no lamb -1.007511 time 2019-08-06 09:01:59.926156
+Model ind 1 epoch 107 head B batch: 0 avg loss -0.775115 avg loss no lamb -0.775115 time 2019-08-06 09:08:27.141060
+Pre: time 2019-08-06 09:20:24.482109: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 9), (4, 5), (5, 10), (6, 6), (7, 8), (8, 2), (9, 3), (10, 1), (11, 7), (12, 4)]
+	test_accs: [0.60420144]
+	train_accs: [0.60420144]
+	best_train_sub_head: 0
+	worst: 0.60420144
+	avg: 0.60420144
+	best: 0.60420144
+
+Starting e_i: 108 2019-08-06 09:20:26.455304
+Model ind 1 epoch 108 head A batch: 0 avg loss -0.720559 avg loss no lamb -0.720559 time 2019-08-06 09:21:07.638910
+Model ind 1 epoch 108 head B batch: 0 avg loss -0.927254 avg loss no lamb -0.927254 time 2019-08-06 09:27:51.181603
+Pre: time 2019-08-06 09:39:42.677611: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 3), (10, 6), (11, 7), (12, 4)]
+	test_accs: [0.5988079]
+	train_accs: [0.5988079]
+	best_train_sub_head: 0
+	worst: 0.5988079
+	avg: 0.5988079
+	best: 0.5988079
+
+Starting e_i: 109 2019-08-06 09:39:44.557636
+Model ind 1 epoch 109 head A batch: 0 avg loss -0.840381 avg loss no lamb -0.840381 time 2019-08-06 09:40:25.416794
+Model ind 1 epoch 109 head B batch: 0 avg loss -0.922500 avg loss no lamb -0.922500 time 2019-08-06 09:47:12.851734
+Pre: time 2019-08-06 09:59:17.180325: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 6), (7, 8), (8, 2), (9, 3), (10, 4), (11, 7), (12, 1)]
+	test_accs: [0.5604479]
+	train_accs: [0.5604479]
+	best_train_sub_head: 0
+	worst: 0.5604479
+	avg: 0.5604479
+	best: 0.5604479
+
+Starting e_i: 110 2019-08-06 09:59:19.183024
+Model ind 1 epoch 110 head A batch: 0 avg loss -0.841572 avg loss no lamb -0.841572 time 2019-08-06 10:00:00.761527
+Model ind 1 epoch 110 head B batch: 0 avg loss -0.693878 avg loss no lamb -0.693878 time 2019-08-06 10:06:37.444035
+Pre: time 2019-08-06 10:18:35.603371: 
+ 	std: 0.0
+	best_train_sub_head_match: [(0, 0), (1, 12), (2, 11), (3, 5), (4, 10), (5, 9), (6, 1), (7, 8), (8, 2), (9, 3), (10, 6), (11, 7), (12, 4)]
+	test_accs: [0.5634793]
+	train_accs: [0.5634793]
+	best_train_sub_head: 0
+	worst: 0.5634793
+	avg: 0.5634793
+	best: 0.5634793
+
+Starting e_i: 111 2019-08-06 10:18:38.214980
+Model ind 1 epoch 111 head A batch: 0 avg loss -1.018811 avg loss no lamb -1.018811 time 2019-08-06 10:19:21.374868
