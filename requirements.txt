@@ -4,7 +4,7 @@ certifi==2019.3.9
 chardet==3.0.4
 cloudpickle==1.1.1
 cycler==0.10.0
-dask==1.2.2
+dask==2021.10.0
 decorator==4.4.0
 enum34==1.1.6
 future==0.17.1
