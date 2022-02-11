@@ -20,7 +20,7 @@ Pillow==6.0.0
 plyfile==0.7
 -e git+git@gitlab.vision.in.tum.de:khamuham/ss19_extendingpointnet.git@64d58e7e4c38179d1a489f5681961a4221b73698#egg=pointnet&subdirectory=pointnet.pytorch
 pptk==0.1.0
-protobuf==3.7.1
+protobuf==3.15.0
 pygame==1.9.6
 pyparsing==2.4.0
 python-dateutil==2.8.0
