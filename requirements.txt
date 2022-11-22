@@ -16,7 +16,7 @@ matplotlib==2.2.4
 networkx==2.2
 numpy==1.16.3
 opencv-python==4.1.0.25
-Pillow==6.0.0
+Pillow==9.3.0
 plyfile==0.7
 -e git+git@gitlab.vision.in.tum.de:khamuham/ss19_extendingpointnet.git@64d58e7e4c38179d1a489f5681961a4221b73698#egg=pointnet&subdirectory=pointnet.pytorch
 pptk==0.1.0
